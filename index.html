@@ -1027,10 +1027,54 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
   }
 }
 
+/* ---- 顶部进度固定栏：只在手机版出现（JS 也只在窄屏创建） ---- */
+#mtb { display: none; }
+
 /* ==========================================================================
    窄屏：手机布局
    ========================================================================== */
 @media (max-width: 760px) {
+
+  /* ---------- 顶部：今日进度固定栏（紧贴「每日记录」下方） ----------
+     窄屏隐藏了右侧悬浮窗，就看不到「今天还差什么」了。
+     这条栏把悬浮窗里的 6 项进度镜像到顶部，滚动时一直可见，
+     点某一项可直接跳到对应卡片。 */
+  #mtb {
+    display: block;
+    position: sticky;
+    top: 0;                     /* 由 JS 按顶栏实际高度覆盖 */
+    z-index: 29;                /* 比顶栏（30）低一层 */
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    --p: 0;                     /* 整体完成度 0~100，JS 写入 */
+  }
+  /* 底部 2px 就是「今天的总进度条」 */
+  #mtb::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 2px; background: #e6ebf4;
+  }
+  #mtb::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    height: 2px; width: calc(var(--p) * 1%);
+    background: var(--brand); transition: width .3s;
+  }
+  #mtb.done::after { background: var(--ok); }
+
+  #mtb .mtb-grid { display: grid; grid-template-columns: repeat(6, 1fr); }
+  #mtb .mtb-cell {
+    display: flex; align-items: center; justify-content: center; gap: 1px;
+    min-width: 0; padding: 6px 1px;
+    border: 0; background: none; font-family: inherit;
+    font-size: 10px; font-weight: 700; letter-spacing: -.2px;
+    color: #a8b1c2; white-space: nowrap; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #mtb .mtb-cell .mtb-p { font-variant-numeric: tabular-nums; }
+  #mtb .mtb-cell.done { color: #0f7a3d; }
+  #mtb .mtb-cell.part { color: #8a6100; }
+  #mtb .mtb-cell.todo { color: #a8b1c2; }
+  #mtb .mtb-cell:active { background: rgba(59, 110, 246, .1); }
 
   /* ---------- 预留底部标签栏的空间 ---------- */
   body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
@@ -5166,6 +5210,94 @@ init();
     }
   }
 
+  /* ---------------- 顶部：今日进度固定栏 ----------------
+     窄屏把右侧悬浮窗（#floatBar）隐藏了，于是「今天还差什么」这个全局视角就没了。
+     这里不去重算一遍完成度（fillStats 在 IIFE 里拿不到，重写一份必然和主应用算岔），
+     而是【镜像】悬浮窗：renderTodayBar() 每次都会把 6 项状态写进 #floatList，
+     同一个 #floatRing 存着总完成度。原样搬过来即可，永远和主应用一致。
+
+     点击也不用自己实现跳转：主应用把 [data-goto-part] 的点击【委托在 document 上】
+     （每日记录.html 第 2210 行），所以只要镜像出来的按钮带同一个属性，
+     原来的 scrollToPart() 就会照常工作。 */
+  var SHORT = { hygiene: "卫生", diet: "饮食", body: "体重",
+                mood: "情绪", phone: "手机", misc: "天气" };
+  var mtb = null, mtbGrid = null, mtbHTML = "";
+
+  function buildMtb() {
+    if (mtb) return mtb;
+    var topbar = document.querySelector(".topbar");
+    if (!topbar || !topbar.parentNode) return null;
+
+    mtb = document.createElement("div");
+    mtb.id = "mtb";
+    mtb.setAttribute("role", "region");
+    mtb.setAttribute("aria-label", "今日填写进度");
+    mtb.innerHTML = '<div class="mtb-grid"></div>';
+    mtbGrid = mtb.querySelector(".mtb-grid");
+    // 插在顶栏正下方（和顶栏同级，同为 body 的 sticky 子元素）
+    topbar.parentNode.insertBefore(mtb, topbar.nextSibling);
+
+    // 点在别的页面时，先切回「记录」页，再让主应用的委托处理器去滚动
+    mtb.addEventListener("click", function (e) {
+      var cell = e.target && e.target.closest ? e.target.closest(".mtb-cell") : null;
+      if (!cell) return;
+      var pane = document.getElementById("pane-record");
+      if (pane && !pane.classList.contains("active")) {
+        var tab = document.querySelector('.tabs .tab[data-tab="record"]');
+        if (tab) tab.click();   // 走应用自己的切页逻辑，不硬改 class
+      }
+    });
+    return mtb;
+  }
+
+  // 顶栏高度会随安全区变化，固定栏要正好贴在它下面
+  function placeMtb() {
+    if (!mtb) return;
+    var topbar = document.querySelector(".topbar");
+    if (topbar) mtb.style.top = Math.round(topbar.getBoundingClientRect().height) + "px";
+  }
+
+  function syncMtb() {
+    if (!mtb || !mtbGrid) return;
+    var list = document.getElementById("floatList");
+    if (!list) return;
+    var parts = list.querySelectorAll(".fpart");
+    if (!parts.length) return;
+
+    var html = "";
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      var key = p.getAttribute("data-goto-part") || "";
+      var nameEl = p.querySelector(".fp-name");
+      var pctEl = p.querySelector(".fp-pct");
+      var cls = p.classList.contains("done") ? "done"
+              : p.classList.contains("part") ? "part" : "todo";
+      var short = SHORT[key] || (nameEl ? nameEl.textContent.slice(0, 2) : key);
+      html += '<button type="button" class="mtb-cell ' + cls +
+              '" data-goto-part="' + key + '" title="' +
+              (nameEl ? nameEl.textContent : "") + '">' +
+              '<span class="mtb-n">' + short + '</span>' +
+              '<span class="mtb-p">' + (pctEl ? pctEl.textContent : "") + '</span>' +
+              '</button>';
+    }
+    // renderTodayBar 每次都重写 innerHTML，内容没变就别动 DOM，免得正在点的按钮被换掉
+    if (html !== mtbHTML) { mtbGrid.innerHTML = html; mtbHTML = html; }
+
+    // 整条总进度：优先读悬浮窗上的 --p，读不到就从环里的文字解析
+    var pct = 0, ring = document.getElementById("floatRing");
+    if (ring) {
+      var raw = ring.style.getPropertyValue("--p");
+      if (raw !== "") pct = parseFloat(raw) || 0;
+      else {
+        var sp = ring.querySelector("span");
+        if (sp) pct = parseFloat(sp.textContent) || 0;
+      }
+    }
+    pct = Math.max(0, Math.min(100, pct));
+    mtb.style.setProperty("--p", pct);
+    mtb.classList.toggle("done", pct >= 100);
+  }
+
   /* ---------------- 应用状态 ---------------- */
   function apply() {
     var on = mq.matches;
@@ -5177,6 +5309,9 @@ init();
       compactClock();
       var fb = document.getElementById("floatBar");
       if (fb) fb.classList.add("tucked");
+      buildMtb();
+      placeMtb();
+      syncMtb();
     }
   }
 
@@ -5201,6 +5336,24 @@ init();
         subtree: true, characterData: true, childList: true,
       });
     }
+
+    // 悬浮窗每次重算，就跟着刷新顶部固定栏
+    var list = document.getElementById("floatList");
+    if (list) {
+      new MutationObserver(syncMtb).observe(list, { childList: true, subtree: true });
+    }
+    var ring = document.getElementById("floatRing");
+    if (ring) {
+      new MutationObserver(syncMtb).observe(ring, {
+        childList: true, subtree: true, characterData: true, attributes: true,
+      });
+    }
+
+    // 顶栏高度会随横竖屏 / 安全区变化
+    window.addEventListener("resize", function () { placeMtb(); });
+    window.addEventListener("orientationchange", function () {
+      setTimeout(placeMtb, 250);
+    });
 
     document.body.classList.add("m-ready");
   }
