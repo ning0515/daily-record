@@ -1206,7 +1206,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     min-width: 0;
     border: 0;
     background: transparent;
-    padding: 5px 1px 4px;
+    padding: 4px 1px 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1215,12 +1215,35 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     font: inherit;
     font-size: 10.5px;
     line-height: 1.15;
-    color: var(--ink2);
+    color: #98a2b3;                /* 未选中统一灰色 */
     cursor: pointer;
     border-radius: 9px;
     -webkit-tap-highlight-color: transparent;
-    transition: color .14s, background .14s;
+    transition: color .14s;
+    --tab: var(--brand);           /* 未知 tab 的兜底色 */
+    --tab-soft: rgba(59, 110, 246, .14);
   }
+
+  /* 每个 tab 一个专属色。底色用半透明，这样浅色/深色模式都不用另写一套。
+     图标是 currentColor 描边，所以选中时图标和文字会一起变成该 tab 的颜色。 */
+  .mnav-btn[data-tab="record"]   { --tab: #3b6ef6; --tab-soft: rgba(59, 110, 246, .15); }
+  .mnav-btn[data-tab="life"]     { --tab: #7c5cf0; --tab-soft: rgba(124, 92, 240, .15); }
+  .mnav-btn[data-tab="week"]     { --tab: #0e8fa8; --tab-soft: rgba(14, 143, 168, .15); }
+  .mnav-btn[data-tab="calendar"] { --tab: #e0670c; --tab-soft: rgba(224, 103, 12, .15); }
+  .mnav-btn[data-tab="charts"]   { --tab: #16a34a; --tab-soft: rgba(22, 163, 74, .15); }
+  .mnav-btn[data-tab="data"]     { --tab: #64748b; --tab-soft: rgba(100, 116, 139, .16); }
+
+  /* 图标外套一个胶囊：选中时填上该 tab 的浅色底（iOS 底部栏那种） */
+  .mnav-btn .mnav-ico {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 23px;
+    border-radius: 999px;
+    transition: background .16s;
+  }
+  .mnav-btn .mnav-ico svg { width: 19px; height: 19px; display: block; }
+
   .mnav-btn .mnav-label {
     display: block;
     max-width: 100%;
@@ -1229,16 +1252,24 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     white-space: nowrap;
   }
   .mnav-btn.on {
-    color: var(--brand);
-    background: var(--brand-soft);
-    font-weight: 700;
+    color: var(--tab);
+    font-weight: 800;
   }
+  .mnav-btn.on .mnav-ico { background: var(--tab-soft); }
   .mnav-btn:active { transform: scale(.94); }
 }
 
 /* ---------- 深色模式下的底部栏 ---------- */
 @media (max-width: 760px) and (prefers-color-scheme: dark) {
   #mnav { background: rgba(22, 26, 34, .96); }
+  .mnav-btn { color: #7b8798; }
+  /* 深底上把各 tab 的专属色提亮，否则「数据」那种石板灰会糊在背景里 */
+  .mnav-btn[data-tab="record"]   { --tab: #7ba0ff; }
+  .mnav-btn[data-tab="life"]     { --tab: #a78bfa; }
+  .mnav-btn[data-tab="week"]     { --tab: #22b8d4; }
+  .mnav-btn[data-tab="calendar"] { --tab: #fb923c; }
+  .mnav-btn[data-tab="charts"]   { --tab: #4ade80; }
+  .mnav-btn[data-tab="data"]     { --tab: #a3b1c6; }
 }
 
 /* ---------- 极窄屏（iPhone SE 375px）：再收紧一点 ---------- */
@@ -5153,6 +5184,32 @@ init();
   var mq = window.matchMedia("(max-width: 760px)");
   var nav = null;
 
+  /* ---------------- 底部标签栏的图标 ----------------
+     全部用 stroke="currentColor" 描边，选中时能直接跟着该 tab 的专属色变，
+     不用为每种颜色各准备一套图。图形刻意选得互相好区分：
+       record   铅笔（今天在记）
+       life     2×2 方格（人生四象限）
+       week     旗子（本周要推进的）
+       calendar 日历
+       charts   柱状图
+       data     数据库圆柱
+     路径写在 JS 里，省得再多文件、多请求。 */
+  var NAV_ICONS = {
+    record:   '<path d="M4 20l.9-4.2L15.6 5.1a2 2 0 0 1 2.8 0l.5.5a2 2 0 0 1 0 2.8L8.2 19.1 4 20z"/><path d="M14.4 6.3l3.3 3.3"/>',
+    life:     '<rect x="3.6" y="3.6" width="7.2" height="7.2" rx="1.7"/><rect x="13.2" y="3.6" width="7.2" height="7.2" rx="1.7"/><rect x="3.6" y="13.2" width="7.2" height="7.2" rx="1.7"/><rect x="13.2" y="13.2" width="7.2" height="7.2" rx="1.7"/>',
+    week:     '<path d="M6.6 21V3.4"/><path d="M6.6 4.4h11.2l-2.4 3.8 2.4 3.8H6.6"/>',
+    calendar: '<rect x="3.5" y="5" width="17" height="15.4" rx="2.6"/><path d="M3.5 9.9h17"/><path d="M8 3.1v3.6M16 3.1v3.6"/>',
+    charts:   '<path d="M4.4 20h15.2"/><path d="M7.6 20v-6"/><path d="M12 20V6.6"/><path d="M16.4 20v-9"/>',
+    data:     '<ellipse cx="12" cy="6.2" rx="7.2" ry="3"/><path d="M4.8 6.2v11.6c0 1.66 3.22 3 7.2 3s7.2-1.34 7.2-3V6.2"/><path d="M4.8 12c0 1.66 3.22 3 7.2 3s7.2-1.34 7.2-3"/>',
+  };
+  var NAV_ICON_FALLBACK = '<circle cx="12" cy="12" r="8"/>';
+
+  function navIcon(key) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+           (NAV_ICONS[key] || NAV_ICON_FALLBACK) + '</svg>';
+  }
+
   /* ---------------- 底部标签栏 ---------------- */
   function buildNav() {
     if (nav) return nav;
@@ -5173,9 +5230,14 @@ init();
       btn.type = "button";
       btn.className = "mnav-btn";
       btn.setAttribute("data-tab", key);
-      // 复用原标签的文字，前面那个 emoji 图标保持原样
-      btn.innerHTML = '<span class="mnav-label"></span>';
-      btn.querySelector(".mnav-label").textContent = src.textContent.trim();
+
+      // 已经有图标了，标签若自带 emoji 就剥掉，免得图标重复
+      var label = src.textContent.trim().replace(/^[^0-9A-Za-z\u4e00-\u9fa5]+/, "");
+      btn.setAttribute("aria-label", label);
+      btn.innerHTML = '<span class="mnav-ico">' + navIcon(key) + '</span>' +
+                      '<span class="mnav-label"></span>';
+      btn.querySelector(".mnav-label").textContent = label;
+
       btn.addEventListener("click", function () {
         var k = this.getAttribute("data-tab");
         var t = document.querySelector('.tabs .tab[data-tab="' + k + '"]');
