@@ -1091,23 +1091,31 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
   /* 原来的横向标签搬到下方底部栏，这里隐藏 */
   .tabs { display: none !important; }
 
-  /* 时钟：只显示 HH:MM:SS，靠右 */
+  /* 时钟：手机上压缩格式，但日期 / 星期 / 时间一个都不丢
+     桌面原文「北京时间 2026-10-07（周三）19:40:06」→ 手机「10/07 周三 19:40:06」 */
   #clock {
     margin-left: auto;
-    font-size: 12.5px;
+    font-size: 12px;
     font-variant-numeric: tabular-nums;
     color: var(--ink2);
     white-space: nowrap;
     overflow: hidden;
-    flex: 0 1 auto;
+    text-overflow: ellipsis;
+    flex: 1 1 auto;        /* 空间不够时优先压它，不挤掉圆点 */
     min-width: 0;
+    text-align: right;
   }
   #clock[data-short] { font-size: 0; }
-  #clock[data-short]::after { content: attr(data-short); font-size: 12.5px; }
+  #clock[data-short]::after { content: attr(data-short); font-size: 12px; }
 
-  /* 保存状态：只留圆点，避免和时钟挤在一起 */
+  /* 保存状态：只留一个圆点（颜色表示 已保存 / 编辑中 / 失败），
+     把横向空间让给日期和星期。
+     ⚠️ 原来那条写的是 .ss-body，但 HTML 里根本没有这个类
+     （原页面 CSS 第 47 行也引用了它，是死代码），所以一直没生效、
+     「刚刚 已保存」白占了约 95px。真正的子元素是下面这两个。 */
   .savestate { padding: 5px 8px; flex: 0 0 auto; }
-  .savestate .ss-body { display: none; }
+  .savestate .ss-when,
+  .savestate .ss-text { display: none; }
 
   /* ---------- 主内容：单列、减小留白 ---------- */
   main { padding: 10px 12px 16px !important; }
@@ -5182,13 +5190,25 @@ init();
     return nav;
   }
 
-  /* ---------------- 顶部时钟：手机上只显示 HH:MM:SS ---------------- */
+  /* ---------------- 顶部时钟：手机上压缩格式，但不丢信息 ----------------
+     桌面原文是「北京时间 2026-10-07（周三）19:40:06」，
+     手机上宽度不够，压成「10/07 周三 19:40:06」——
+     日期、星期、时间全都在，只是省掉了「北京时间」和年份。
+     （之前只截了 19:40:06，把日期和星期整个丢掉了） */
   function compactClock() {
     var clock = document.getElementById("clock");
     if (!clock) return;
-    // 原文字类似「北京时间 2026-10-07（周三）17:44:44」，手机上只留 HH:MM:SS
-    var m = clock.textContent.match(/(\d{2}:\d{2}:\d{2})/);
-    if (m) clock.setAttribute("data-short", m[1]);
+    var t = clock.textContent || "";
+    var full = t.match(
+      /(\d{4})-(\d{2})-(\d{2})\s*[（(]\s*(周[一二三四五六日])\s*[）)]\s*(\d{2}:\d{2}:\d{2})/
+    );
+    if (full) {
+      clock.setAttribute("data-short", full[2] + "/" + full[3] + " " + full[4] + " " + full[5]);
+      return;
+    }
+    // 兜底：万一格式变了，至少保住时间，不至于整块空白
+    var hm = t.match(/(\d{2}:\d{2}:\d{2})/);
+    if (hm) clock.setAttribute("data-short", hm[1]);
   }
 
   /* ---------------- 与应用的标签切换保持同步 ----------------
