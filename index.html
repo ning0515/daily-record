@@ -996,10 +996,25 @@
 .btn, .mini { min-height: 36px; }
 input[type=checkbox], input[type=radio] { width: 22px; height: 22px; }
 input, select, textarea { font-size: 16px !important; }  /* 低于 16px iOS 会整页放大 */
-body { -webkit-user-select: none; user-select: none; }
-input, textarea, [contenteditable] { -webkit-user-select: text; user-select: text; }
+
+/* ---- 文字要能选中复制 ----
+   这里原来是 body{user-select:none}，而且写在媒体查询【外面】，
+   结果桌面版也一个字符都选不中。改成只对交互控件禁用，
+   正文 / 记录 / 历史 / 横条数值一律可以选中复制。 */
+button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
+  -webkit-user-select: none; user-select: none;
+}
 .brand, .card h2, button, .tab, label { -webkit-touch-callout: none; }
 .hist-list, main { -webkit-overflow-scrolling: touch; }
+
+/* ---- 目标横条：修掉「横条过长、后面文字被裁掉」 ----
+   原页面 .bar-row 把数值列传死成 112px，但 .bv 自己又写了
+   min-width:126px 且 white-space:nowrap，实际内容最宽约 156px
+   （例如「20 / 30 min　还差 10 min」）。格子比内容窄 → 文字溢出到
+   卡片外，被卡片的 overflow:hidden 裁掉；横条则吃掉全部剩余宽度显得过长。
+   改成数值列按内容自适应，横条吃剩余空间。 */
+.bar-row { grid-template-columns: 48px minmax(0, 1fr) auto !important; }
+.bar-row .bv { min-width: 0 !important; }
 
 /* ==========================================================================
    窄屏：手机布局
@@ -1068,9 +1083,9 @@ input, textarea, [contenteditable] { -webkit-user-select: text; user-select: tex
   .dash > *, .dash-col > *, .life > *, .life-col > *,
   .life2 > *, .quad > *, .g2 > *, .g3 > *, .g6 > * { min-width: 0; }
 
-  /* 横向条形图：左边标签太宽，手机上缩窄并允许滑动 */
+  /* 横向条形图：手机上只压缩间距，列宽由上面的通用规则按内容自适应。
+     （这里原来把数值列压成 62px，导致文字被裁掉一大截） */
   .bar-row {
-    grid-template-columns: 62px minmax(0, 1fr) 62px !important;
     gap: 8px !important;
   }
 
@@ -1836,9 +1851,52 @@ input, textarea, [contenteditable] { -webkit-user-select: text; user-select: tex
       el.className = "dr-sync-status" + (kind ? " " + kind : "");
     }
   }
+  /* 远端文件的体积监控。
+     为什么必须盯住它：GitHub Contents API 只在文件不超过约 1 MB 时内联返回
+     content 字段；超过之后只给 download_url，而本应用需要内联内容才能解析，
+     同步会直接失败（实测 1024 KB 仍能读到，1229 KB 就只返回 URL 了）。
+     所以持续显示体积，临近上限就变黄提醒。 */
+  var REMOTE_LIMIT = 1000000;        // 保守取 1.0 MB
+
+  function remoteSizeInfo() {
+    try {
+      var raw = localStorage.getItem(APP_KEY);
+      if (!raw) return null;
+      var db = JSON.parse(raw);
+      // 与 remotePush 的序列化方式保持一致，才是真实上传体积
+      var size = new Blob([JSON.stringify(db, null, 2)]).size;
+      return { size: size, pct: size / REMOTE_LIMIT };
+    } catch (e) { return null; }
+  }
+
+  function fmtSize(n) {
+    return n >= 1048576 ? (n / 1048576).toFixed(2) + " MB"
+                        : (n / 1024).toFixed(0) + " KB";
+  }
+
+  /* 把体积追加到详情行；超过 80% 整行变黄并给出明确警告 */
+  function withSize(baseText) {
+    var info = remoteSizeInfo();
+    if (!info) return baseText || "";
+    var line = (baseText ? baseText + "　·　" : "") +
+               "数据体积 " + fmtSize(info.size) + " / 上限 1 MB（" +
+               Math.round(info.pct * 100) + "%）";
+    if (info.pct >= 1) {
+      line += "　🚨 已超过上限，同步会失败！需要按年拆分文件";
+    } else if (info.pct >= 0.8) {
+      line += "　⚠️ 接近上限，建议按年拆分文件";
+    }
+    return line;
+  }
+
   function setDetail(text) {
     var el = document.getElementById("drSyncDetail");
-    if (el) el.textContent = text || "";
+    if (!el) return;
+    el.textContent = withSize(text);
+    var info = remoteSizeInfo();
+    var warn = !!(info && info.pct >= 0.8);
+    el.style.color = warn ? "#c2410c" : "";
+    el.style.fontWeight = warn ? "700" : "";
   }
 
   /* -------------------------------------------------- 捕获「应用保存了数据」 */
