@@ -2722,12 +2722,10 @@ function todoProgress(r){
 /* ================= 完成度模型 =================
    把一天拆成若干「必填项」，用来算完成度、连续坚持和日历热力图。 */
 var FILL_PARTS = [
-  { key:"hygiene",name:"卫生习惯",   weight:1.5 },
-  { key:"diet",   name:"饮食记录",   weight:1.5 },
-  { key:"body",   name:"体重/运动/饮水/睡眠", weight:2 },
-  { key:"mood",   name:"情绪日记",   weight:1 },
-  { key:"phone",  name:"手机/冥想",  weight:1 },
-  { key:"misc",   name:"天气/关键词", weight:0.5 }
+  { key:"hygiene",name:"卫生习惯", weight:1.5 },
+  { key:"diet",   name:"减肥",     weight:3.5 },
+  { key:"mood",   name:"情绪日记", weight:1 },
+  { key:"phone",  name:"手机/冥想", weight:1 }
 ];
 function ratio(n, d){ return d > 0 ? Math.max(0, Math.min(1, n / d)) : 0; }
 // 一天的各项完成情况
@@ -2741,13 +2739,14 @@ function fillStats(r){
   if(r.mainEmotion) moodN++;
   var phoneN = [r.phoneScreen, r.meditation].filter(isNum).length + (r.phoneOk ? 1 : 0) + (r.meditationDone ? 1 : 0);
   var miscN = (r.weather ? 1 : 0) + (r.keyword ? 1 : 0);
+  // 「饮食」与「体重/运动/饮水/睡眠」合并成一项「减肥」，
+  // 内部按原来的权重 1.5 : 2 合成 —— 合并前后完成度算法完全一致。
+  var dietMerged = ((mealsN + leaveN) / 3) * 1.5 + ratio(bodyN, 4) * 2;
   var v = {
     hygiene: ratio(hc, 6),
-    diet:    (mealsN + leaveN) / 3,
-    body:    ratio(bodyN, 4),
+    diet:    dietMerged / 3.5,
     mood:    ratio(moodN, 5),
-    phone:   ratio(phoneN, 4),
-    misc:    ratio(miscN, 2)
+    phone:   ratio(phoneN, 4)
   };
   var sum = 0, wsum = 0, missing = [];
   FILL_PARTS.forEach(function(pt){
@@ -4620,8 +4619,8 @@ function renderTodayBar(){
 // 点侧栏里的某项 → 滚到对应卡片
 function scrollToPart(key){
   var map = {
-    hygiene:"#badge-hygiene", diet:".sub-h",
-    body:"#badge-weight", mood:"#badge-mood", phone:"#badge-phone", misc:"[data-field=weather]"
+    hygiene:"#badge-hygiene", diet:"#badge-weight",
+    mood:"#badge-mood", phone:"#badge-phone"
   };
   var sel = map[key] || ".card";
   var el = document.querySelector(sel);
@@ -5239,8 +5238,6 @@ init();
      点击也不用自己实现跳转：主应用把 [data-goto-part] 的点击【委托在 document 上】
      （每日记录.html 第 2210 行），所以只要镜像出来的按钮带同一个属性，
      原来的 scrollToPart() 就会照常工作。 */
-  var SHORT = { hygiene: "卫生", diet: "饮食", body: "体重",
-                mood: "情绪", phone: "手机", misc: "天气" };
   var mtb = null, mtbGrid = null, mtbHTML = "";
 
   function buildMtb() {
@@ -5292,16 +5289,23 @@ init();
       var pctEl = p.querySelector(".fp-pct");
       var cls = p.classList.contains("done") ? "done"
               : p.classList.contains("part") ? "part" : "todo";
-      var short = SHORT[key] || (nameEl ? nameEl.textContent.slice(0, 2) : key);
+      // 取名字前两个字当短名（卫生习惯→卫生、减肥→减肥、手机/冥想→手机）。
+      // 不再写死映射表：项目改名（例如以后把「饮食」改成别的）也能自动跟上。
+      var full = nameEl ? nameEl.textContent : key;
+      var short = full.slice(0, 2);
       html += '<button type="button" class="mtb-cell ' + cls +
-              '" data-goto-part="' + key + '" title="' +
-              (nameEl ? nameEl.textContent : "") + '">' +
+              '" data-goto-part="' + key + '" title="' + full + '">' +
               '<span class="mtb-n">' + short + '</span>' +
               '<span class="mtb-p">' + (pctEl ? pctEl.textContent : "") + '</span>' +
               '</button>';
     }
     // renderTodayBar 每次都重写 innerHTML，内容没变就别动 DOM，免得正在点的按钮被换掉
-    if (html !== mtbHTML) { mtbGrid.innerHTML = html; mtbHTML = html; }
+    if (html !== mtbHTML) {
+      mtbGrid.innerHTML = html;
+      mtbHTML = html;
+      // 列数跟着项目数走（现在 4 项，以后加减都不用改 CSS）
+      mtbGrid.style.gridTemplateColumns = "repeat(" + parts.length + ", 1fr)";
+    }
 
     // 整条总进度：优先读悬浮窗上的 --p，读不到就从环里的文字解析
     var pct = 0, ring = document.getElementById("floatRing");
