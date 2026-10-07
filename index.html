@@ -1913,6 +1913,22 @@ input, textarea, [contenteditable] { -webkit-user-select: text; user-select: tex
     if (!cfg.path) throw new Error("请先填写文件路径");
   }
 
+  /* Git Blob API：Contents API 在文件 >1MB 时不给 content，用它兜底（支持到 100MB）。
+     这是必须的：单天记录约 1.4KB，累计到 1MB 大约是 2 年，
+     到那时 Contents API 会返回 encoding:"none" + 空 content，
+     如果不兜底就会被误判成「远端还没有这个文件」，进而可能用空数据覆盖好数据。 */
+  function blobFetch(sha) {
+    if (!sha) return Promise.reject(new Error("响应里没有 blob sha"));
+    var url = "https://api.github.com/repos/" + encodeURIComponent(cfg.owner) +
+              "/" + encodeURIComponent(cfg.repo) + "/git/blobs/" + sha;
+    return fetch(url, { headers: headers(), cache: "no-store" }).then(function (res) {
+      if (!res.ok) return res.text().then(function (t) {
+        throw new Error("读取大文件失败 HTTP " + res.status + " " + String(t).slice(0, 120));
+      });
+      return res.json().then(function (j) { return b64decode(j.content); });
+    });
+  }
+
   function remoteFetch() {
     checkCfg();
     var url = apiUrl() + "?ref=" + encodeURIComponent(cfg.branch || "main") +
@@ -1928,9 +1944,18 @@ input, textarea, [contenteditable] { -webkit-user-select: text; user-select: tex
         throw new Error("HTTP " + res.status + " " + String(t).slice(0, 180));
       });
       return res.json().then(function (j) {
-        var db = null;
-        try { db = JSON.parse(b64decode(j.content)); } catch (e) { db = null; }
-        return { db: db, sha: j.sha };
+        // ≤1MB：直接就是 base64 content
+        if (j.content && j.encoding === "base64") {
+          var db = null;
+          try { db = JSON.parse(b64decode(j.content)); } catch (e) { db = null; }
+          return { db: db, sha: j.sha };
+        }
+        // >1MB：encoding 是 "none"、content 是空 —— 换 Blob API 取
+        return blobFetch(j.sha).then(function (text) {
+          var db2 = null;
+          try { db2 = JSON.parse(text); } catch (e) { db2 = null; }
+          return { db: db2, sha: j.sha };
+        });
       });
     });
   }
