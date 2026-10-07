@@ -1016,6 +1016,17 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 .bar-row { grid-template-columns: 48px minmax(0, 1fr) auto !important; }
 .bar-row .bv { min-width: 0 !important; }
 
+/* ---- 宽屏上限制横条长度 ----
+   上面那条让横条吃掉全部剩余宽度，在 1512px 的屏幕上会被拉成 840~1010px、
+   1920px 上 1190~1425px，一条进度条长成这样既难读又难看，文字还被顶到最右边贴边。
+   这里在宽屏把横条收到 420px 以内，文字紧跟在横条后面，整块左对齐。 */
+@media (min-width: 820px) {
+  .bar-row {
+    grid-template-columns: 48px minmax(0, 420px) auto !important;
+    justify-content: start;
+  }
+}
+
 /* ==========================================================================
    窄屏：手机布局
    ========================================================================== */

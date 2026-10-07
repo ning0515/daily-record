@@ -1,5 +1,5 @@
 /* 每日记录 · Service Worker —— 预缓存全部资源，实现完全离线 */
-const CACHE = "daily-record-v202610071926";
+const CACHE = "daily-record-v202610071930";
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest",
   "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png",
