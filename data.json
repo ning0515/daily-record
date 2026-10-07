@@ -1,0 +1,185 @@
+{
+  "app": "每日记录",
+  "version": 3,
+  "exportedAt": "2026-10-07T10:35:00.952Z",
+  "records": {
+    "2026-10-07": {
+      "date": "2026-10-07",
+      "weight": 80,
+      "exercise": 20,
+      "water": 1500,
+      "sleep": 8,
+      "vanity": 8,
+      "anxiety": 1,
+      "depression": 1,
+      "emotionScore": 5,
+      "phoneScreen": null,
+      "phoneGoal": null,
+      "pickups": null,
+      "phoneBeforeBed": null,
+      "meditation": null,
+      "focus": null,
+      "weather": "多云",
+      "keyword": "淡淡的悲伤",
+      "hygieneImprove": "今日xi yi fu",
+      "weekPlan": "",
+      "weekProgress": "减肥",
+      "todayMostImportant": "减肥",
+      "priority": "",
+      "reasonNotDone": "",
+      "tomorrowPlan": "",
+      "mainEmotion": "",
+      "trigger": "",
+      "coping": "",
+      "tomorrowAdjust": "",
+      "phoneUse": "",
+      "outOfControl": "",
+      "improvement": "",
+      "meditationFeel": "",
+      "other": "",
+      "dietDone": false,
+      "dayFocusDone": false,
+      "weekFocusAdvanced": true,
+      "meditationDone": false,
+      "hygieneGrade": "",
+      "moodStable": "",
+      "phoneOk": "",
+      "hygiene": {
+        "env": true,
+        "afterMeal": true,
+        "chores": true,
+        "clothes": true,
+        "putBack": true,
+        "personal": true
+      },
+      "emotions": [
+        "虚荣心"
+      ],
+      "todo": [
+        1,
+        0,
+        0
+      ],
+      "goals": [],
+      "weekGoals": "",
+      "weekP0Done": 0,
+      "weekP1Done": 0,
+      "quad": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "todo3": "",
+      "mealLeave": {
+        "breakfast": false,
+        "lunch": true,
+        "dinner": false,
+        "snack": false
+      },
+      "meals": 3,
+      "dietLeave": false,
+      "dietStopFull": false
+    }
+  },
+  "weeks": {
+    "2026-10-05": {
+      "goals": [],
+      "migrated": true
+    },
+    "2026-10-12": {
+      "goals": []
+    },
+    "2026-10-19": {
+      "goals": []
+    },
+    "2026-10-26": {
+      "goals": []
+    },
+    "2026-11-02": {
+      "goals": []
+    },
+    "2026-11-09": {
+      "goals": []
+    }
+  },
+  "life": {
+    "items": [
+      {
+        "id": "gmuxuife725eh",
+        "q": "Q1",
+        "title": "减肥",
+        "done": false,
+        "createdAt": "2026-10-07",
+        "doneAt": null,
+        "pin": null
+      },
+      {
+        "id": "gmuxuj48ravjk",
+        "q": "Q1",
+        "title": "卫生习惯",
+        "done": false,
+        "createdAt": "2026-10-07",
+        "doneAt": null,
+        "pin": null
+      },
+      {
+        "id": "gmuxujpuxkd9b",
+        "q": "Q3",
+        "title": "情绪日记",
+        "done": false,
+        "createdAt": "2026-10-07",
+        "doneAt": null,
+        "pin": null
+      },
+      {
+        "id": "gmuxukz512wm3",
+        "q": "Q3",
+        "title": "记录每日时间消耗",
+        "done": false,
+        "createdAt": "2026-10-07",
+        "doneAt": null,
+        "pin": null
+      },
+      {
+        "id": "gmuxuouisjk7g",
+        "q": "Q2",
+        "title": "学车",
+        "done": false,
+        "createdAt": "2026-10-07",
+        "doneAt": null,
+        "pin": null
+      },
+      {
+        "id": "gmuxuoxzmu47a",
+        "q": "Q2",
+        "title": "学化妆",
+        "done": false,
+        "createdAt": "2026-10-07",
+        "doneAt": null,
+        "pin": null
+      }
+    ]
+  },
+  "goals": {
+    "weight": 70,
+    "exercise": 30,
+    "water": 1500,
+    "sleep": 7.5,
+    "meals": 2
+  },
+  "syncMeta": {
+    "times": {
+      "2026-10-07": 1791369300952
+    },
+    "deleted": {},
+    "weekTimes": {
+      "2026-10-05": 1791369300952,
+      "2026-10-12": 1791369300952,
+      "2026-10-19": 1791369300952,
+      "2026-10-26": 1791369300952,
+      "2026-11-02": 1791369300952,
+      "2026-11-09": 1791369300952
+    },
+    "weekDeleted": {}
+  }
+}
