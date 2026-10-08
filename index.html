@@ -1887,7 +1887,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     <div class="card"><h2>🏃 运动 / 💧 饮水 <span class="badge" id="eStat"></span></h2>
       <div class="body"><div class="chart-wrap" id="chart-exercise"></div><div class="chart-wrap" id="chart-water" style="margin-top:10px"></div></div></div>
 
-    <div class="card"><h2>💗 情绪曲线 <span class="badge">0–10 分，越低越好（情绪分除外）</span></h2>
+    <div class="card"><h2>💗 情绪曲线 <span class="badge">0–10 分，越低越好</span></h2>
       <div class="body"><div class="chart-wrap" id="chart-mood"></div><div class="legend" id="moodLegend"></div></div></div>
 
     <div class="card"><h2>🧹 卫生习惯完成率 <span class="badge" id="hStat"></span></h2>
@@ -2875,6 +2875,13 @@ function load(){
     if(DB && !DB.life) DB.life = { items:[] };
     if(DB && !DB.goals) DB.goals = {};
     if(DB && !DB.memo) DB.memo = { items: [] };
+    // 情绪分已整个移除：顺手把历史记录里残留的值删掉，免得它还留在导出和同步的文件里
+    if(DB && DB.records){
+      Object.keys(DB.records).forEach(function(k){
+        var rec = DB.records[k];
+        if(rec && typeof rec === "object" && "emotionScore" in rec) delete rec.emotionScore;
+      });
+    }
     if(DB && DB.memo && !Array.isArray(DB.memo.items)) DB.memo.items = [];
   }catch(e){ console.warn("读取本地数据失败", e); }
 }
@@ -2955,7 +2962,7 @@ function sortedDates(){ return Object.keys(DB.records).sort(byDateAsc); }
 
 /* ================= 记录结构 ================= */
 var HYGIENE_KEYS = ["env","afterMeal","chores","clothes","putBack","personal"];
-var NUM_FIELDS = ["weight","exercise","water","sleep","meals","vanity","anxiety","depression","emotionScore",
+var NUM_FIELDS = ["weight","exercise","water","sleep","meals","vanity","anxiety","depression",
                   "phoneScreen","phoneGoal","pickups","phoneBeforeBed","meditation","focus"];
 var TEXT_FIELDS = ["weather","keyword","hygieneImprove","weekPlan","weekProgress","todayMostImportant",
                    "priority","todo3","reasonNotDone","tomorrowPlan","mainEmotion","trigger","coping","tomorrowAdjust",
@@ -3051,7 +3058,7 @@ function fillStats(r){
   var mealsN = isNum(r.meals) ? 1 : 0;
   var leaveN = (r.dietLeave ? 1 : 0) + (r.dietStopFull ? 1 : 0);
   var bodyN = [r.weight, r.exercise, r.water, r.sleep].filter(isNum).length;
-  var moodN = ["vanity","anxiety","depression","emotionScore"].filter(function(f){ return isNum(r[f]); }).length;
+  var moodN = ["vanity","anxiety","depression"].filter(function(f){ return isNum(r[f]); }).length;
   if(r.mainEmotion) moodN++;
   var phoneN = [r.phoneScreen, r.meditation].filter(isNum).length + (r.phoneOk ? 1 : 0) + (r.meditationDone ? 1 : 0);
   var miscN = (r.weather ? 1 : 0) + (r.keyword ? 1 : 0);
@@ -3061,7 +3068,7 @@ function fillStats(r){
   var v = {
     hygiene: ratio(hc, 6),
     diet:    dietMerged / 3.5,
-    mood:    ratio(moodN, 5),
+    mood:    ratio(moodN, 4),
     phone:   ratio(phoneN, 4)
   };
   var sum = 0, wsum = 0, missing = [];
@@ -3831,7 +3838,6 @@ function renderHistory(){
       bits.push("习惯 <b>" + hygieneCount(r) + "/6</b>");
       if(isNum(r.sleep)) bits.push("睡眠 <b>" + r.sleep + "</b>h");
       if(isNum(r.exercise)) bits.push("运动 <b>" + r.exercise + "</b>min");
-      if(isNum(r.emotionScore)) bits.push("情绪分 <b>" + r.emotionScore + "</b>");
       if(isNum(r.phoneScreen)) bits.push("屏幕 <b>" + r.phoneScreen + "</b>h");
       var wkN = (r.goals || []).length;
       if(wkN) bits.push("周重点推进 <b>" + wkN + "</b> 件");
@@ -4026,7 +4032,6 @@ function renderCharts(){
     {k:"平均睡眠", v: avgS===null?"—":avgS.toFixed(1), s:"h"},
     {k:"平均运动", v: avgE===null?"—":Math.round(avgE), s:"min"},
     {k:"平均饮水", v: avgWa===null?"—":Math.round(avgWa), s:"ml"},
-    {k:"平均情绪分", v:(function(){var a=avgOf(recs,"emotionScore");return a===null?"—":a.toFixed(1);})(), s:"分"},
     {k:"平均屏幕", v:(function(){var a=avgOf(recs,"phoneScreen");return a===null?"—":a.toFixed(1);})(), s:"h"},
     {k:"打卡天数", v: dates.length, s:"天"},
     {k:"平均完成度", v:(function(){ var a=avgOf(recs,"__fill"); return a===null?"—":Math.round(a); })(), s:"%"},
@@ -4058,14 +4063,12 @@ function renderCharts(){
   lineChart(document.getElementById("chart-mood"), dates, [
     {name:"虚荣心", color:PALETTE.orange, data:recs.map(function(r){return r.vanity;})},
     {name:"焦虑",   color:PALETTE.red,    data:recs.map(function(r){return r.anxiety;})},
-    {name:"抑郁",   color:PALETTE.purple, data:recs.map(function(r){return r.depression;})},
-    {name:"情绪分", color:PALETTE.green,  data:recs.map(function(r){return r.emotionScore;})}
+    {name:"抑郁",   color:PALETTE.purple, data:recs.map(function(r){return r.depression;})}
   ], {yFmt:function(v){return Math.round(v);}, height:250});
   document.getElementById("moodLegend").innerHTML =
     '<span><i style="background:'+PALETTE.orange+'"></i>虚荣心</span>' +
     '<span><i style="background:'+PALETTE.red+'"></i>焦虑</span>' +
-    '<span><i style="background:'+PALETTE.purple+'"></i>抑郁</span>' +
-    '<span><i style="background:'+PALETTE.green+'"></i>情绪分</span>';
+    '<span><i style="background:'+PALETTE.purple+'"></i>抑郁</span>';
 
   var hc = recs.map(hygieneCount);
   barChart(document.getElementById("chart-hygiene"), dates, hc,
@@ -4685,7 +4688,7 @@ var CSV_COLS = [
   ["dayFocusDone","日重点完成"],["weekFocusAdvanced","周重点推进"],
   ["reasonNotDone","未完成原因"],["tomorrowPlan","明日课表调整"],
   ["vanity","虚荣心"],["anxiety","焦虑"],["depression","抑郁"],["emotions","主要情绪"],
-  ["emotionScore","情绪分"],["moodStable","情绪状态"],["mainEmotion","最明显情绪"],["trigger","触发事件"],
+  ["moodStable","情绪状态"],["mainEmotion","最明显情绪"],["trigger","触发事件"],
   ["coping","应对方式"],["tomorrowAdjust","明日调整"],
   ["phoneScreen","屏幕时间h"],["phoneGoal","目标屏幕时间h"],["pickups","拿起次数"],
   ["phoneBeforeBed","睡前不碰手机min"],["meditation","冥想min"],["focus","专注度"],
@@ -4995,7 +4998,7 @@ function streakDefs(){
     { key:"meditation", name:"冥想打卡", flower:true,
       fn:function(d){ var r = DB.records[d]; return !!r && (r.meditationDone || (isNum(r.meditation) && r.meditation > 0)); } },
     { key:"mood", name:"情绪日记", flower:true,
-      fn:function(d){ var r = DB.records[d]; return !!r && (isNum(r.emotionScore) || isNum(r.anxiety) || isNum(r.depression)); } },
+      fn:function(d){ var r = DB.records[d]; return !!r && (isNum(r.anxiety) || isNum(r.depression)); } },
     { key:"nophone", name:"睡前不碰手机", flower:true,
       fn:function(d){ var r = DB.records[d]; return !!r && isNum(r.phoneBeforeBed) && r.phoneBeforeBed > 0; } }
   ];
@@ -5202,7 +5205,7 @@ function renderDayDetail(){
       '　饱了就停：' + (r.dietStopFull ? "✓" : '<span class="miss">未填</span>') + '</span></div>' +
     '<div class="dsec">习惯 / 情绪</div>' +
     '<div class="drow"><span class="dk">卫生</span><span class="dv">' + hyg + '/6' + (r.hygieneGrade ? "（" + escH(r.hygieneGrade) + "）" : "") + '</span></div>' +
-    '<div class="drow"><span class="dk">情绪</span><span class="dv">情绪分 ' + f(r.emotionScore) + '　焦虑 ' + f(r.anxiety) +
+    '<div class="drow"><span class="dk">情绪</span><span class="dv">焦虑 ' + f(r.anxiety) +
       '　抑郁 ' + f(r.depression) + '　虚荣 ' + f(r.vanity) + '</span></div>' +
     '<div class="drow"><span class="dk">最明显</span><span class="dv">' + t(r.mainEmotion) + '　触发：' + t(r.trigger) + '</span></div>' +
     '<div class="drow"><span class="dk">应对</span><span class="dv">' + t(r.coping) + '</span></div>' +
