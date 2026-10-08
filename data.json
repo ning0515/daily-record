@@ -81,9 +81,9 @@
     "2026-10-08": {
       "date": "2026-10-08",
       "weight": 83.85,
-      "exercise": null,
-      "water": null,
-      "sleep": null,
+      "exercise": 30,
+      "water": 1000,
+      "sleep": 8,
       "meals": null,
       "vanity": null,
       "anxiety": null,
@@ -114,12 +114,12 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietDone": false,
+      "dietDone": true,
       "dayFocusDone": false,
       "weekFocusAdvanced": false,
       "meditationDone": false,
-      "dietLeave": false,
-      "dietStopFull": false,
+      "dietLeave": true,
+      "dietStopFull": true,
       "hygieneGrade": "优",
       "moodStable": "",
       "phoneOk": "",
@@ -133,8 +133,8 @@
       },
       "mealLeave": {
         "breakfast": false,
-        "lunch": false,
-        "dinner": false,
+        "lunch": true,
+        "dinner": true,
         "snack": false
       },
       "emotions": [],
@@ -253,12 +253,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:19:49.221Z",
+  "exportedAt": "2026-10-08T15:20:10.902Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472785089
+      "2026-10-08": 1791472807900
     },
     "deleted": {},
     "weekTimes": {
@@ -273,7 +273,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472785089
+      "2026-10-08": 1791472807900
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
