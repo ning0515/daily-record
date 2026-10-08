@@ -77,6 +77,70 @@
       "meals": 3,
       "dietLeave": false,
       "dietStopFull": false
+    },
+    "2026-10-08": {
+      "date": "2026-10-08",
+      "weight": null,
+      "exercise": null,
+      "water": null,
+      "sleep": null,
+      "meals": null,
+      "vanity": null,
+      "anxiety": null,
+      "depression": null,
+      "emotionScore": null,
+      "phoneScreen": null,
+      "phoneGoal": null,
+      "pickups": null,
+      "phoneBeforeBed": null,
+      "meditation": null,
+      "focus": null,
+      "weather": "",
+      "keyword": "",
+      "hygieneImprove": "",
+      "weekPlan": "",
+      "weekProgress": "",
+      "todayMostImportant": "",
+      "priority": "",
+      "todo3": "",
+      "reasonNotDone": "",
+      "tomorrowPlan": "",
+      "mainEmotion": "",
+      "trigger": "",
+      "coping": "",
+      "tomorrowAdjust": "",
+      "phoneUse": "",
+      "outOfControl": "",
+      "improvement": "",
+      "meditationFeel": "",
+      "other": "",
+      "dietDone": false,
+      "dayFocusDone": false,
+      "weekFocusAdvanced": false,
+      "meditationDone": false,
+      "dietLeave": false,
+      "dietStopFull": false,
+      "hygieneGrade": "",
+      "moodStable": "",
+      "phoneOk": "",
+      "hygiene": {
+        "env": true,
+        "afterMeal": false,
+        "chores": false,
+        "clothes": false,
+        "putBack": false,
+        "personal": false
+      },
+      "mealLeave": {
+        "breakfast": false,
+        "lunch": false,
+        "dinner": false,
+        "snack": false
+      },
+      "emotions": [],
+      "todo": null,
+      "goals": [],
+      "quad": null
     }
   },
   "weeks": {
@@ -165,10 +229,11 @@
     "meals": 3
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-07T12:01:03.024Z",
+  "exportedAt": "2026-10-08T03:39:04.954Z",
   "syncMeta": {
     "times": {
-      "2026-10-07": 1791374460020
+      "2026-10-07": 1791374460020,
+      "2026-10-08": 1791430741952
     },
     "deleted": {},
     "weekTimes": {
