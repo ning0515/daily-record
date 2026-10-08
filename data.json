@@ -84,7 +84,7 @@
       "exercise": 30,
       "water": 1000,
       "sleep": 8,
-      "meals": null,
+      "meals": 2,
       "vanity": 4,
       "anxiety": 7,
       "depression": 2,
@@ -256,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:24:48.876Z",
+  "exportedAt": "2026-10-08T15:24:56.834Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473079567
+      "2026-10-08": 1791473093833
     },
     "deleted": {},
     "weekTimes": {
@@ -276,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473079567
+      "2026-10-08": 1791473093833
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
