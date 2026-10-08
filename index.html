@@ -1443,6 +1443,74 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
   #memoFloat { left: 16px; right: auto; }
 }
 
+/* ==========================================================================
+   右上角的同步状态胶囊
+   为什么单独做一个：原来右上角只反映【本地】保存状态，GitHub 推送成功与否
+   藏在「数据」页里，推送失败根本看不见。这个胶囊专门表达「远端」那一半，
+   和旁边的「已保存」并排 —— 于是「本地存了但没推上去」一眼就能看出。
+   ========================================================================== */
+.syncbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #f2f5fa;
+  color: var(--ink2);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.syncbadge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #98a2b3;
+  flex: 0 0 auto;
+}
+.syncbadge:hover { filter: brightness(.97); }
+
+.syncbadge.pending { background: #eef4ff; border-color: #c3d8ff; color: #1d4ed8; }
+.syncbadge.pending::before { background: #3b6ef6; }
+.syncbadge.busy { background: #eef4ff; border-color: #c3d8ff; color: #1d4ed8; }
+.syncbadge.busy::before { background: #3b6ef6; animation: sbpulse 1s ease-in-out infinite; }
+.syncbadge.ok { background: #e8f7ee; border-color: #bfe6cd; color: #0f7a3d; }
+.syncbadge.ok::before { background: #16a34a; }
+.syncbadge.err { background: #fdecec; border-color: #f5c2c2; color: #b91c1c; }
+.syncbadge.err::before { background: #dc2626; animation: sbpulse 1.1s ease-in-out infinite; }
+.syncbadge.local { background: #fff7e6; border-color: #f0dca8; color: #8a6100; }
+.syncbadge.local::before { background: #e0a800; }
+@keyframes sbpulse { 0%, 100% { opacity: 1 } 50% { opacity: .3 } }
+
+/* 短文案只给手机用 */
+.syncbadge .sb-short { display: none; }
+
+/* ---------- 手机版：顶部空间紧张，能省就省 ---------- */
+@media (max-width: 760px) {
+  .syncbadge { padding: 3px 7px; font-size: 11px; gap: 4px; }
+  .syncbadge::before { width: 7px; height: 7px; }
+  .syncbadge .sb-full { display: none; }
+  .syncbadge .sb-short { display: inline; }
+  /* 一切正常时不占地方；只有 待推送 / 同步中 / 失败 / 仅本机 才出现 */
+  .syncbadge.idle,
+  .syncbadge.ok { display: none; }
+}
+
+/* 手机版：胶囊显示时让出「本地保存」那个圆点，给时钟腾地方。
+   实测 320px 下不这么做时钟会被挤到截断。 */
+@media (max-width: 760px) {
+  html.syncbadge-on #saveState { display: none !important; }
+  /* 胶囊本身再收紧一点 */
+  .syncbadge { padding: 3px 6px; gap: 3px; letter-spacing: -.2px; }
+}
+
 </style>
 </head>
 <body>
@@ -2039,7 +2107,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     branch: "main",
     token: "",
     autoPull: true,
-    autoPush: true
+    autoPush: true,
+    pushDelay: 5000          // 本地改动后多少毫秒推送（停手计时）
   };
 
   /* ---------------------------------------------------------------- 基础工具 */
@@ -2126,6 +2195,113 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
      更糟的是，差异检测会把这看成「用户删了这条」，进而生成墓碑同步到别的设备。
      所以这个窗口内直接丢弃主应用的写盘，等重载后再由新数据接管。 */
   var mergedPending = false;
+
+  /* ---------------- 保存 / 推送 状态机 ----------------
+     右上角的小胶囊就靠这几个变量渲染。核心原则：
+     「本地保存成功」和「已同步到 GitHub」是两件事，必须分开显示 ——
+     否则「本地存了但推送失败」这种情况用户完全看不见。 */
+  var pushState    = "idle";   // idle | local | pending | busy | ok | err
+  var pushDeadline = 0;        // pending：计划推送的时刻
+  var pushErrMsg   = "";       // err：最后一次失败原因
+  var retryAt      = 0;        // err：下次自动重试的时刻
+  var retryStep    = 0;        // 失败退避档位
+  var retryTimer   = null;
+  var countdownTimer = null;
+  var RETRY_STEPS  = [10000, 30000, 60000, 120000];   // 10s → 30s → 60s → 120s
+
+  function pushDelayMs(){
+    var v = Number(cfg.pushDelay);
+    return (isFinite(v) && v >= 1000) ? v : 5000;      // 默认 5 秒
+  }
+
+  /* ---------------- 右上角的同步状态胶囊 ---------------- */
+  function renderSyncBadge(){
+    var el = document.getElementById("syncBadge");
+    if(!el) return;
+    var now = Date.now(), cls = "idle", full = "已保存", short = "", title = "本地已保存";
+
+    if(!cfg.token){
+      cls = "local"; full = "仅存本机"; short = "本机";
+      title = "还没填 Token，改动只保存在这台设备上";
+    } else if(pushing || busy){
+      cls = "busy"; full = "同步中…"; short = "同步";
+      title = "正在上传到 GitHub";
+    } else if(pushState === "pending" && pushDeadline){
+      var left = Math.max(0, Math.ceil((pushDeadline - now) / 1000));
+      cls = "pending"; full = left + " 秒后同步"; short = left + "s";
+      title = "本地已保存。" + left + " 秒后自动上传到 GitHub，点一下可立即上传";
+    } else if(pushState === "err"){
+      cls = "err";
+      var rl = retryAt ? Math.max(0, Math.ceil((retryAt - now) / 1000)) : 0;
+      full = rl ? "同步失败 · " + rl + "s 后重试" : "同步失败";
+      short = "失败";
+      title = "本地已保存，但还没上传到 GitHub：\n" + pushErrMsg + "\n点一下立即重试";
+    } else if(pushState === "ok"){
+      cls = "ok"; full = "已同步"; short = "已同步";
+      title = "本机与 GitHub 一致（" + fmtTime(Date.now()) + "）";
+    } else {
+      cls = "idle"; full = "已保存"; short = "";
+      title = "本地已保存";
+    }
+
+    el.className = "syncbadge " + cls;
+    /* 手机版顶栏很窄：胶囊出现时让它「接管」本地保存那个圆点的位置
+       （胶囊自己就带一个点，颜色同样表意），否则 320px 下时钟会被挤到截断。 */
+    if (document.documentElement) {
+      document.documentElement.classList.toggle("syncbadge-on", cls !== "idle" && cls !== "ok");
+    }
+    el.setAttribute("title", title);
+    el.innerHTML = '<span class="sb-full"></span><span class="sb-short"></span>';
+    el.querySelector(".sb-full").textContent = full;
+    el.querySelector(".sb-short").textContent = short || full;
+  }
+
+  /* 需要走秒的状态才开定时器，其余时候一个定时器都不留 */
+  function ensureCountdown(){
+    var need = (pushState === "pending" && pushDeadline) || (pushState === "err" && retryAt);
+    if(need && !countdownTimer){
+      countdownTimer = setInterval(function(){
+        renderSyncBadge();
+        // 倒计时归零但定时器还没触发（比如后台被节流），补一次
+        if(pushState === "pending" && pushDeadline && Date.now() > pushDeadline + 1500 && !busy){
+          doPush(false, "同步每日记录");
+        }
+      }, 1000);
+    } else if(!need && countdownTimer){
+      clearInterval(countdownTimer); countdownTimer = null;
+    }
+  }
+
+  function setPushState(st, opt){
+    pushState = st;
+    opt = opt || {};
+    if("deadline" in opt) pushDeadline = opt.deadline;
+    if("err" in opt) pushErrMsg = opt.err || "";
+    if("retryAt" in opt) retryAt = opt.retryAt;
+    ensureCountdown();
+    renderSyncBadge();
+  }
+
+  function mountSyncBadge(){
+    if(document.getElementById("syncBadge")) return;
+    var ss = document.getElementById("saveState");
+    if(!ss || !ss.parentNode) return;
+    var el = document.createElement("div");
+    el.id = "syncBadge";
+    el.className = "syncbadge idle";
+    el.setAttribute("role", "status");
+    ss.parentNode.insertBefore(el, ss.nextSibling);
+    el.addEventListener("click", function(){
+      if(!cfg.token){
+        alert("还没有填写 GitHub Token。\n\n打开「数据」页 → GitHub 同步，粘贴 Token 后点「保存设置」。");
+        return;
+      }
+      clearTimeout(pushTimer); clearTimeout(retryTimer);
+      retryStep = 0;
+      doPush(true, "手动上传每日记录");
+    });
+    renderSyncBadge();
+  }
 
   function setStatus(text, kind) {
     var el = document.getElementById("drSyncStatus");
@@ -2602,6 +2778,20 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 
       setStatus("已从 GitHub 拉取（" + countRecords(out.db) + " 天记录）", "ok");
       setDetail("上次同步：" + fmtTime(Date.now()));
+
+      /* 关键：本地存了但上次没推成功（关页面 / 断网 / Token 过期），
+         这次打开时数据还在本机，但远端没有 —— 必须主动补传，
+         否则它会一直只躺在这台设备上，换设备就丢。 */
+      if (cfg.token && cfg.autoPush && localAheadOf(res.db)) {
+        setStatus("发现本机有还没上传的改动，正在补传…", "busy");
+        setPushState("pending", { deadline: Date.now() + 1200, retryAt: 0 });
+        clearTimeout(pushTimer);
+        pushTimer = setTimeout(function () { doPush(false, "补传上次未同步的改动"); }, 1200);
+      } else if (cfg.token) {
+        setPushState("ok", { deadline: 0, retryAt: 0, err: "" });
+      } else {
+        setPushState("local");
+      }
       return out.changed;
     }).catch(function (err) {
       ready = true;   // 拉取失败也放行推送，否则永远卡住
@@ -2614,6 +2804,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
   function doPush(announce, message) {
     if (busy) return Promise.resolve(false);
     if (!cfg.token) {
+      setPushState("local");
       setStatus("未填写 Token，无法上传", "warn");
       if (announce) alert("还没有填写 GitHub Token，无法上传。\n\n在下面的输入框粘贴 Token 后点「保存设置」。");
       return Promise.resolve(false);
@@ -2637,6 +2828,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     }
 
     busy = true;
+    clearTimeout(retryTimer);
+    setPushState("busy");
     if (announce) setStatus("正在上传到 GitHub…", "busy");
 
     return remotePush(payload, lastSha, message).then(function (j) {
@@ -2646,6 +2839,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
       try { localStorage.setItem("daily_sync_last", String(Date.now())); } catch (e) {}
       setStatus("已上传到 GitHub（" + localCount + " 天记录）", "ok");
       setDetail("上次同步：" + fmtTime(Date.now()));
+      retryStep = 0;
+      setPushState("ok", { deadline: 0, retryAt: 0, err: "" });
       return true;
     }).catch(function (err) {
       if (err.conflict) {
@@ -2666,6 +2861,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
             .then(function (j) {
               lastSha = (j && j.content && j.content.sha) || lastSha;
               setStatus("已合并并上传到 GitHub", "ok");
+              retryStep = 0;
+              setPushState("ok", { deadline: 0, retryAt: 0, err: "" });
               // 主应用内存里的 DB 已经落后于合并结果了，必须重载，
               // 否则用户下一次编辑会把内存里的旧 DB 写回来、覆盖掉刚合并的远端记录。
               if (mergedChanged) {
@@ -2677,15 +2874,46 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
         });
       }
       setStatus("上传失败：" + err.message, "err");
+      scheduleRetry(err.message);          // 右上角会显示「同步失败 · Ns 后重试」
       if (announce) alert("上传到 GitHub 失败：\n\n" + err.message);
       return false;
-    }).then(function (r) { busy = false; return r; });
+    }).then(function (r) { busy = false; renderSyncBadge(); return r; });
   }
 
+  /* 本地改动后延迟若干秒再上传（默认 5 秒，可在「数据」页里改）。
+     每次编辑都会重置倒计时 —— 也就是「停手 N 秒后才推」，避免边打字边推。 */
   function schedulePush() {
     clearTimeout(pushTimer);
-    setStatus("本地有改动，准备上传…", "busy");
-    pushTimer = setTimeout(function () { doPush(false); }, 3000);
+    clearTimeout(retryTimer);
+    retryStep = 0;
+    var delay = pushDelayMs();
+    var at = Date.now() + delay;
+    setPushState("pending", { deadline: at, retryAt: 0 });
+    setStatus("本地已保存，" + Math.round(delay / 1000) + " 秒后自动上传…", "busy");
+    pushTimer = setTimeout(function () { doPush(false, "同步每日记录"); }, delay);
+  }
+
+  /* 上传失败后的自动重试（退避：10s → 30s → 60s → 120s） */
+  function scheduleRetry(msg) {
+    var back = RETRY_STEPS[Math.min(retryStep, RETRY_STEPS.length - 1)];
+    retryStep++;
+    retryAt = Date.now() + back;
+    setPushState("err", { err: msg, retryAt: retryAt });
+    clearTimeout(retryTimer);
+    retryTimer = setTimeout(function () {
+      if (cfg.token && !busy) doPush(false, "自动重试上传");
+    }, back);
+  }
+
+  /* 本机和远端是否已经不一致（用来在启动时补传上次没推成功的改动） */
+  function localAheadOf(remoteDb) {
+    var l = localDB();
+    if (!remoteDb) return countRecords(l) > 0;
+    return JSON.stringify(l.records || {}) !== JSON.stringify(remoteDb.records || {}) ||
+           JSON.stringify(l.weeks || {})   !== JSON.stringify(remoteDb.weeks || {}) ||
+           JSON.stringify(l.life || {})    !== JSON.stringify(remoteDb.life || {}) ||
+           JSON.stringify(l.goals || {})   !== JSON.stringify(remoteDb.goals || {}) ||
+           JSON.stringify(l.memo || null)  !== JSON.stringify(remoteDb.memo || null);
   }
 
   /* ------------------------------------------------------------------ 界面 */
@@ -2722,6 +2950,13 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     '    <input type="text" id="drSyncBranch" placeholder="main" autocapitalize="off" autocorrect="off" spellcheck="false">',
     '    <label for="drSyncPath">文件路径</label>',
     '    <input type="text" id="drSyncPath" placeholder="data.json" autocapitalize="off" autocorrect="off" spellcheck="false">',
+    '    <label for="drSyncDelay">上传延迟</label>',
+    '    <select id="drSyncDelay">',
+    '      <option value="3000">停手 3 秒后</option>',
+    '      <option value="5000">停手 5 秒后</option>',
+    '      <option value="10000">停手 10 秒后</option>',
+    '      <option value="30000">停手 30 秒后</option>',
+    '    </select>',
     '    <label for="drSyncToken">Token</label>',
     '    <input type="password" id="drSyncToken" placeholder="github_pat_… 或 ghp_…" autocapitalize="off" autocorrect="off" spellcheck="false">',
     '  </div>',
@@ -2767,11 +3002,13 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     var $ = function (id) { return document.getElementById(id); };
     var repoEl = $("drSyncRepo"), brEl = $("drSyncBranch"), pathEl = $("drSyncPath");
     var tokEl = $("drSyncToken"), apEl = $("drSyncAutoPull"), auEl = $("drSyncAutoPush");
+    var delayEl = $("drSyncDelay");
 
     repoEl.value = cfg.owner && cfg.repo ? (cfg.owner + "/" + cfg.repo) : "";
     brEl.value = cfg.branch || "main";
     pathEl.value = cfg.path || "data.json";
     tokEl.value = cfg.token || "";
+    if (delayEl) delayEl.value = String(pushDelayMs());
     apEl.checked = !!cfg.autoPull;
     auEl.checked = !!cfg.autoPush;
 
@@ -2785,6 +3022,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
       cfg.branch = (brEl.value || "main").trim() || "main";
       cfg.path = (pathEl.value || "data.json").trim() || "data.json";
       cfg.token = (tokEl.value || "").trim();
+      if (delayEl) cfg.pushDelay = Number(delayEl.value) || 5000;
       cfg.autoPull = !!apEl.checked;
       cfg.autoPush = !!auEl.checked;
       saveCfg();
@@ -2793,6 +3031,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     $("drSyncSave").onclick = function () {
       try { collect(); } catch (e) { alert(e.message); return; }
       setStatus("设置已保存", "ok");
+      setPushState(cfg.token ? pushState : "local");
+      renderSyncBadge();
     };
 
     $("drSyncPull").onclick = function () {
@@ -2822,10 +3062,27 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     setDetail("上次同步：" + fmtTime(Number(localStorage.getItem("daily_sync_last") || 0) || 0));
   }
 
+  /* ---------------- 断网 / 恢复网络 ----------------
+     断网时把状态明确出来，恢复后自动把欠的推送补上。 */
+  window.addEventListener("offline", function () {
+    if (!cfg.token) return;
+    pushErrMsg = "网络已断开";
+    setPushState("err", { err: "网络已断开", retryAt: 0 });
+    setStatus("网络已断开，恢复后会自动重试", "warn");
+  });
+  window.addEventListener("online", function () {
+    if (!cfg.token) return;
+    if (pushState === "err" || pushState === "pending") {
+      clearTimeout(retryTimer);
+      doPush(false, "网络恢复后重试");
+    }
+  });
+
   /* ------------------------------------------------------------------ 启动 */
 
   function boot() {
     mountPanel();
+    mountSyncBadge();
     lastSeen = (function () { try { return clone(localDB()); } catch (e) { return null; } })();
 
     if (cfg.autoPull) {
