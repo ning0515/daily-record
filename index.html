@@ -1384,19 +1384,20 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 
 .memo-empty { font-size: 12.5px; color: #8a94a6; padding: 5px 2px; }
 
-/* ---------- 备忘录悬浮窗（只给电脑版） ---------- */
+/* ---------- 备忘录悬浮窗（只给电脑版，放右下角） ----------
+   右侧本来是「记录日期」面板（.fchip，238px 宽），它只占上半部分，
+   下方还有几百像素空白 —— 备忘录就放那儿，和它右边缘对齐。 */
 #memoFloat {
   /* 电脑版一律存在。
      之前这里写的是「窄于 1180px 就 display:none」，结果窗口一窄就整个消失，
-     用户只会觉得「功能没了」。现在改成：永远显示，窄屏时由 JS 自动收起成标题条，
-     想用点一下就能展开。 */
+     用户只会觉得「功能没了」。现在改成：永远显示，窄屏时由 JS 自动收起成标题条。 */
   display: flex;
   position: fixed;
-  left: 16px;
+  right: 20px;
   bottom: 16px;
   z-index: 45;
-  width: 274px;
-  max-height: min(60vh, 500px);
+  width: 238px;                  /* 与 .fchip 同宽，右边缘对齐看着整齐 */
+  max-height: min(46vh, 360px);  /* 只占下半屏，避免顶到上面的日期面板 */
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--line);
@@ -1433,6 +1434,13 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 /* 手机上不显示（底部有标签栏，会打架），改用记录页里的备忘录卡片 */
 @media (max-width: 760px) {
   #memoFloat { display: none !important; }
+}
+
+/* 窗口窄到 1330px 以下时，右侧的「记录日期」面板会收起成贴边的圆形把手，
+   那个把手正好落在右下角，会和备忘录撞上（实测 1280px 就会重叠）。
+   所以这个时候把备忘录挪回左下角 —— 两边都留得住，谁也不挡谁。 */
+@media (min-width: 761px) and (max-width: 1329px) {
+  #memoFloat { left: 16px; right: auto; }
 }
 
 </style>
