@@ -253,16 +253,56 @@
         "done": true,
         "createdAt": 1791472430795,
         "doneAt": 1791472432260
+      },
+      {
+        "id": "mmuzofm3g8pywb",
+        "text": "6",
+        "done": false,
+        "createdAt": 1791472435612,
+        "doneAt": null
+      },
+      {
+        "id": "mmuzofnkz6fzot",
+        "text": "7",
+        "done": false,
+        "createdAt": 1791472437539,
+        "doneAt": null
+      },
+      {
+        "id": "mmuzofodyza7pk",
+        "text": "8",
+        "done": false,
+        "createdAt": 1791472438582,
+        "doneAt": null
+      },
+      {
+        "id": "mmuzofp22c9e6m",
+        "text": "8",
+        "done": false,
+        "createdAt": 1791472439450,
+        "doneAt": null
+      },
+      {
+        "id": "mmuzofpt801dzb",
+        "text": "8",
+        "done": false,
+        "createdAt": 1791472440428,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:13:55.619Z",
+  "exportedAt": "2026-10-08T15:14:03.782Z",
   "syncMeta": {
     "times": {
       "mmuzofg7m4s7wr": 1791472428338,
       "mmuzofhgs036sd": 1791472429963,
-      "mmuzofidnobtza": 1791472432611
+      "mmuzofidnobtza": 1791472432611,
+      "mmuzofm3g8pywb": 1791472435963,
+      "mmuzofnkz6fzot": 1791472437891,
+      "mmuzofodyza7pk": 1791472438934,
+      "mmuzofp22c9e6m": 1791472439802,
+      "mmuzofpt801dzb": 1791472440779
     },
     "deleted": {},
     "weekTimes": {
@@ -277,7 +317,12 @@
     "memoTimes": {
       "mmuzofg7m4s7wr": 1791472428338,
       "mmuzofhgs036sd": 1791472429963,
-      "mmuzofidnobtza": 1791472432611
+      "mmuzofidnobtza": 1791472432611,
+      "mmuzofm3g8pywb": 1791472435963,
+      "mmuzofnkz6fzot": 1791472437891,
+      "mmuzofodyza7pk": 1791472438934,
+      "mmuzofp22c9e6m": 1791472439802,
+      "mmuzofpt801dzb": 1791472440779
     },
     "memoDeleted": {}
   }
