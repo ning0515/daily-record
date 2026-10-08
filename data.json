@@ -91,7 +91,7 @@
       "emotionScore": null,
       "phoneScreen": 6.47,
       "phoneGoal": 3,
-      "pickups": null,
+      "pickups": 133,
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
@@ -256,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:22:18.874Z",
+  "exportedAt": "2026-10-08T15:22:57.581Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472935872
+      "2026-10-08": 1791472974578
     },
     "deleted": {},
     "weekTimes": {
@@ -276,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472935872
+      "2026-10-08": 1791472974578
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
