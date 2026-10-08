@@ -231,12 +231,38 @@
     "sleep": 7.5,
     "meals": 3
   },
+  "memo": {
+    "items": [
+      {
+        "id": "mmuzofg7m4s7wr",
+        "text": "1",
+        "done": false,
+        "createdAt": 1791472427986,
+        "doneAt": null
+      },
+      {
+        "id": "mmuzofhgs036sd",
+        "text": "2",
+        "done": false,
+        "createdAt": 1791472429612,
+        "doneAt": null
+      },
+      {
+        "id": "mmuzofidnobtza",
+        "text": "3",
+        "done": true,
+        "createdAt": 1791472430795,
+        "doneAt": 1791472432260
+      }
+    ]
+  },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T04:12:55.526Z",
+  "exportedAt": "2026-10-08T15:13:55.619Z",
   "syncMeta": {
     "times": {
-      "2026-10-07": 1791374460020,
-      "2026-10-08": 1791432765994
+      "mmuzofg7m4s7wr": 1791472428338,
+      "mmuzofhgs036sd": 1791472429963,
+      "mmuzofidnobtza": 1791472432611
     },
     "deleted": {},
     "weekTimes": {
@@ -247,6 +273,12 @@
       "2026-11-02": 1791369300952,
       "2026-11-09": 1791369300952
     },
-    "weekDeleted": {}
+    "weekDeleted": {},
+    "memoTimes": {
+      "mmuzofg7m4s7wr": 1791472428338,
+      "mmuzofhgs036sd": 1791472429963,
+      "mmuzofidnobtza": 1791472432611
+    },
+    "memoDeleted": {}
   }
 }
