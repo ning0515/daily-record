@@ -92,9 +92,9 @@
       "phoneScreen": 6.47,
       "phoneGoal": 3,
       "pickups": 133,
-      "phoneBeforeBed": null,
-      "meditation": null,
-      "focus": null,
+      "phoneBeforeBed": 15,
+      "meditation": 5,
+      "focus": 3,
       "weather": "晴",
       "keyword": "学习",
       "hygieneImprove": "",
@@ -256,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:22:57.581Z",
+  "exportedAt": "2026-10-08T15:23:28.668Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472974578
+      "2026-10-08": 1791473005665
     },
     "deleted": {},
     "weekTimes": {
@@ -276,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472974578
+      "2026-10-08": 1791473005665
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
