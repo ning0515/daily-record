@@ -148,8 +148,8 @@
       "weekP0Done": 0,
       "weekP1Done": 0,
       "dietLog": "午饭 自制恰巴塔 晚饭 一杯无糖奶茶",
-      "dietCheat": "",
-      "dietTreat": ""
+      "dietCheat": "无",
+      "dietTreat": "无"
     }
   },
   "weeks": {
@@ -256,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:24:15.958Z",
+  "exportedAt": "2026-10-08T15:24:42.569Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473051619
+      "2026-10-08": 1791473079567
     },
     "deleted": {},
     "weekTimes": {
@@ -276,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473051619
+      "2026-10-08": 1791473079567
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
