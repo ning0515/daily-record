@@ -1035,8 +1035,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
    ========================================================================== */
 @media (max-width: 760px) {
 
-  /* ---------- 顶部：今日进度固定栏（紧贴「每日记录」下方） ----------
-     窄屏隐藏了右侧悬浮窗，就看不到「今天还差什么」了。
+  /* ---------- 顶部：今日进度固定栏（紧贴「每日记录」下方） ----------     窄屏隐藏了右侧悬浮窗，就看不到「今天还差什么」了。
      这条栏把悬浮窗里的各项进度镜像到顶部，滚动时一直可见，
      点某一项可直接跳到对应卡片。 */
   #mtb {
@@ -1119,6 +1118,33 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 
   /* ---------- 主内容：单列、减小留白 ---------- */
   main { padding: 10px 12px 16px !important; }
+
+  /* ---------- 记录页日期条上的「前一天 / 后一天」----------
+     悬浮窗里的日期导航在窄屏被隐藏了，这两个按钮补上那个能力。 */
+  .mday-btn {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink2);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mday-btn:active {
+    background: var(--brand-soft);
+    border-color: #c3d8ff;
+    color: var(--brand);
+  }
+  /* 日期条收紧一点，390px 下一行放得下：◀ 日期 今天 ▶ 保存 */
+  .record-top { padding: 8px 10px !important; gap: 7px !important; }
+  .record-top .datelabel { font-size: 14px; }
+  .record-top .today-badge { padding: 1px 7px; font-size: 11px; }
+  .record-top .btn.sm { padding: 6px 11px; font-size: 13px; }
   .main-col { gap: 13px; }
 
   /* 所有多列网格一律改单列，避免在 390px 下挤成不能用的窄条。
@@ -1281,6 +1307,131 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 }
 
 </style>
+<style id="extra-features">
+/* ==========================================================================
+   新增功能样式 —— 由 build_pwa.py 注入到 <head>
+   1) 减肥卡片里的「饮食记录 / 犯规 / 小小放纵」三个框 + 放纵日实时标记
+   2) 备忘录（卡片 + 电脑版悬浮窗）
+   3) 日历火焰图上的「放纵日」图例
+   ========================================================================== */
+
+/* ---------- 放纵日实时标记 ---------- */
+.cheat-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 11px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.cheat-badge.on { display: inline-flex; }
+.cheat-badge.treat { background: #fff7e6; border: 1px solid #f0dca8; color: #8a6100; }
+.cheat-badge.cheat { background: #fdecec; border: 1px solid #f5c2c2; color: #b91c1c; }
+
+/* 火焰图图例里的放纵日色块 */
+.heat-legend i.chLv1 { background: #f0b429; }
+.heat-legend i.chLv2 { background: #e0523c; }
+
+/* ---------- 备忘录 ---------- */
+.memo-add { display: flex; gap: 8px; margin-bottom: 11px; }
+.memo-add input { flex: 1 1 auto; min-width: 0; }
+.memo-add .btn { flex: 0 0 auto; }
+
+.memo-list { display: flex; flex-direction: column; gap: 6px; }
+
+.memo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  transition: background .15s, border-color .15s;
+}
+.memo-item.done { background: #f7faf8; border-color: #e2efe8; }
+
+.memo-chk { flex: 0 0 auto; display: flex; align-items: center; padding-top: 1px; }
+.memo-chk input { width: 17px; height: 17px; margin: 0; accent-color: var(--ok); cursor: pointer; }
+
+.memo-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+/* 已完成：划掉 + 变灰（并且排在列表最下面） */
+.memo-item.done .memo-text {
+  color: #8a94a6;
+  text-decoration: line-through;
+  text-decoration-color: rgba(138, 148, 166, .55);
+}
+
+.memo-del {
+  flex: 0 0 auto;
+  width: 22px; height: 22px;
+  border: 0; border-radius: 6px;
+  background: transparent;
+  color: #b6bfcc;
+  font-size: 15px; line-height: 1;
+  cursor: pointer;
+}
+.memo-del:hover { background: #fdecec; color: #dc2626; }
+
+.memo-empty { font-size: 12.5px; color: #8a94a6; padding: 5px 2px; }
+
+/* ---------- 备忘录悬浮窗（只给电脑版） ---------- */
+#memoFloat {
+  display: none;                 /* 默认不显示，宽屏媒体查询里才打开 */
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 45;
+  width: 274px;
+  max-height: min(60vh, 500px);
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+#memoFloat .mf-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--line);
+  background: #f7f9fc;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+#memoFloat .mf-count { margin-left: auto; font-size: 11.5px; font-weight: 700; color: #8a94a6; }
+#memoFloat .mf-caret { color: #9aa4b2; font-size: 12px; }
+#memoFloat .mf-body { padding: 10px 11px; overflow: auto; overscroll-behavior: contain; }
+#memoFloat .memo-text { font-size: 13px; }
+/* 收起后只剩标题条 */
+#memoFloat.collapsed { max-height: none; }
+#memoFloat.collapsed .mf-body { display: none; }
+
+/* 宽屏才显示悬浮窗：窄一点的笔记本上它会盖住正文 */
+@media (min-width: 1180px) {
+  #memoFloat { display: flex; }
+}
+/* 手机上不显示（底部有标签栏，会打架），改用记录页里的备忘录卡片 */
+@media (max-width: 760px) {
+  #memoFloat { display: none !important; }
+}
+
+</style>
 </head>
 <body>
 
@@ -1386,6 +1537,13 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
           <label class="chk"><input type="checkbox" data-field="dietStopFull">饱了就停 ✓</label>
           <label class="chk"><input type="checkbox" data-field="dietDone">今日饮食达标 ✓</label>
         </div>
+        <p class="sub-h" style="margin-top:16px">🍽️ 饮食记录 · 放纵</p>
+        <div class="field"><label>今天吃了什么</label><textarea data-field="dietLog" placeholder="早/午/晚吃了什么，随手记"></textarea></div>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="field"><label>犯规</label><input type="text" data-field="dietCheat" placeholder="破戒吃了什么"></div>
+          <div class="field"><label>小小放纵</label><input type="text" data-field="dietTreat" placeholder="轻微放纵，如一杯奶茶"></div>
+        </div>
+        <div class="cheat-badge" id="cheatState"></div>
       </div>
     </div>
 
@@ -1534,6 +1692,19 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
       <button class="btn" id="copyYesterday">复制前一天的内容</button>
     </div>
     <p class="hint" style="margin-top:12px">输入即自动保存到本机浏览器（<span class="kbd">⌘/Ctrl + S</span> 也可手动保存）。建议每周在「数据」页导出一次 JSON 备份。</p>
+
+    <!-- 备忘录（新增） -->
+    <div class="card" id="memoCard">
+      <h2>📝 备忘录 <span class="badge" id="memoCount"></span></h2>
+      <div class="body">
+        <p class="hint">想记的事写在这里。做完在前面打勾，它会自动沉到列表最下面。</p>
+        <div class="memo-add">
+          <input type="text" id="memoInput" placeholder="写一条备忘，按回车添加">
+          <button class="btn sm primary" id="memoAddBtn">添加</button>
+        </div>
+        <div class="memo-list" id="memoList"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ 人生总览 ============ -->
@@ -1644,6 +1815,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
           <button class="btn sm" id="calThisYear">今年</button>
           <span class="spacer"></span>
           <span class="heat-legend">少 <i class="hl0"></i><i class="hl1"></i><i class="hl2"></i><i class="hl3"></i><i class="hl4"></i><i class="hl5"></i> 多</span>
+          <span class="heat-legend" style="margin-left:12px">放纵 <i class="chLv1"></i>小小 <i class="chLv2"></i>犯规</span>
         </div>
         <div class="heat-scroll"><div id="calHeat"></div></div>
       </div>
@@ -1937,6 +2109,11 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
   var pushing    = false;
   var pushTimer  = null;
   var suppress   = false;  // 自己写 localStorage 时不要触发「本地有改动」
+  /* 合并完之后、页面重载之前，主应用内存里还是旧 DB。
+     这段窗口里它若自动保存一次，就会把刚合并进来的数据覆盖掉 ——
+     更糟的是，差异检测会把这看成「用户删了这条」，进而生成墓碑同步到别的设备。
+     所以这个窗口内直接丢弃主应用的写盘，等重载后再由新数据接管。 */
+  var mergedPending = false;
 
   function setStatus(text, kind) {
     var el = document.getElementById("drSyncStatus");
@@ -1997,6 +2174,9 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 
   var origSetItem = Storage.prototype.setItem;
   Storage.prototype.setItem = function (key, value) {
+    if (mergedPending && !suppress && this === window.localStorage && key === APP_KEY) {
+      return;                       // 见 mergedPending 的说明：这段窗口的写盘一律丢弃
+    }
     origSetItem.apply(this, arguments);
     if (suppress) return;
     if (this !== window.localStorage) return;
@@ -2005,6 +2185,7 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
   };
 
   function onLocalChange(rawValue) {
+    if (mergedPending) return;
     var db;
     try { db = JSON.parse(rawValue); } catch (e) { return; }
     if (!db || typeof db !== "object") return;
@@ -2036,11 +2217,43 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
       }
     }
   }
+  /* 备忘录按 id 逐条记时间戳与墓碑。
+     没有墓碑的话，在手机上删掉一条、电脑上还留着，下次同步就会「复活」。 */
+  function stampMemoChanges(before, after) {
+    if (!meta.memoTimes) meta.memoTimes = {};
+    if (!meta.memoDeleted) meta.memoDeleted = {};
+    var now = Date.now();
+    var b = {}, a = {};
+    ((before.memo && before.memo.items) || []).forEach(function (it) {
+      if (it && it.id) b[it.id] = it;
+    });
+    ((after.memo && after.memo.items) || []).forEach(function (it) {
+      if (it && it.id) a[it.id] = it;
+    });
+    var id;
+    for (id in a) {
+      if (!Object.prototype.hasOwnProperty.call(a, id)) continue;
+      if (!Object.prototype.hasOwnProperty.call(b, id) ||
+          JSON.stringify(b[id]) !== JSON.stringify(a[id])) {
+        meta.memoTimes[id] = now;
+        delete meta.memoDeleted[id];
+      }
+    }
+    for (id in b) {
+      if (!Object.prototype.hasOwnProperty.call(b, id)) continue;
+      if (!Object.prototype.hasOwnProperty.call(a, id)) {
+        meta.memoDeleted[id] = now;
+        delete meta.memoTimes[id];
+      }
+    }
+  }
+
   function stampChanges(before, after) {
     if (!meta.weekTimes) meta.weekTimes = {};
     if (!meta.weekDeleted) meta.weekDeleted = {};
     stampOneMap(before.records || {}, after.records || {}, meta.times, meta.deleted);
     stampOneMap(before.weeks || {}, after.weeks || {}, meta.weekTimes, meta.weekDeleted);
+    stampMemoChanges(before, after);
     writeJSON(META_KEY, meta);
   }
 
@@ -2266,10 +2479,56 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     }
     merged.goals = g;
 
+    /* 备忘录：按 id 取并集，同时尊重墓碑 ——
+       谁「删得更晚」谁说了算，这样手机删掉的条目不会因为电脑还留着就复活；
+       两边都有同一条时取最后动过的那份。 */
+    if (local.memo || remote.memo || meta.memoDeleted || (remote.syncMeta && remote.syncMeta.memoDeleted)) {
+      var lMemos = (local.memo && local.memo.items) || [];
+      var rMemos = (remote.memo && remote.memo.items) || [];
+      var lMemoT = meta.memoTimes || {}, lMemoD = meta.memoDeleted || {};
+      var rMemoT = (remote.syncMeta && remote.syncMeta.memoTimes) || {};
+      var rMemoD = (remote.syncMeta && remote.syncMeta.memoDeleted) || {};
+      var lById = {}, rById = {};
+      lMemos.forEach(function (it) { if (it && it.id) lById[it.id] = it; });
+      rMemos.forEach(function (it) { if (it && it.id) rById[it.id] = it; });
+
+      var seen = {}, ids = [];
+      [lById, rById, lMemoD, rMemoD].forEach(function (src) {
+        for (var k in src) {
+          if (!Object.prototype.hasOwnProperty.call(src, k)) continue;
+          if (!Object.prototype.hasOwnProperty.call(seen, k)) { seen[k] = 1; ids.push(k); }
+        }
+      });
+
+      var mTimes = {}, mDeleted = {}, outMemos = [];
+      ids.forEach(function (id) {
+        var lt = lMemoD[id] || 0, rt = rMemoD[id] || 0;
+        var deleted = (lt || rt) && (rt >= lt ? !!rt : !!lt);
+        if (deleted) { mDeleted[id] = Math.max(lt, rt); return; }
+        var lIt = lById[id], rIt = rById[id];
+        var pick;
+        if (lIt && rIt) {
+          var lc = lMemoT[id] || lIt.doneAt || lIt.createdAt || 0;
+          var rc = rMemoT[id] || rIt.doneAt || rIt.createdAt || 0;
+          pick = rc > lc ? rIt : lIt;
+        } else {
+          pick = lIt || rIt;
+        }
+        if (!pick) return;
+        outMemos.push(pick);
+        mTimes[id] = Math.max(lMemoT[id] || 0, rMemoT[id] || 0) ||
+                     (pick.doneAt || pick.createdAt || Date.now());
+      });
+      merged.memo = { items: outMemos };
+      meta.memoTimes = mTimes;
+      meta.memoDeleted = mDeleted;
+    }
+
     var changed = JSON.stringify(merged.records) !== JSON.stringify(local.records) ||
                   JSON.stringify(merged.weeks) !== JSON.stringify(local.weeks) ||
                   JSON.stringify(merged.life) !== JSON.stringify(local.life) ||
-                  JSON.stringify(merged.goals) !== JSON.stringify(local.goals);
+                  JSON.stringify(merged.goals) !== JSON.stringify(local.goals) ||
+                  JSON.stringify(merged.memo || null) !== JSON.stringify(local.memo || null);
 
     meta.times = mTimes;
     meta.deleted = mDel;
@@ -2313,13 +2572,21 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
       writeJSON(CFG_KEY, cfg);
       try { localStorage.setItem("daily_sync_last", String(Date.now())); } catch (e) {}
 
-      if (out.changed && !sessionStorage.getItem(RELOAD_FLAG)) {
-        sessionStorage.setItem(RELOAD_FLAG, "1");
-        setStatus("已合并 GitHub 上的新数据，正在刷新…", "busy");
-        location.reload();
+      if (out.changed) {
+        var n = Number(sessionStorage.getItem(RELOAD_FLAG) || 0);
+        if (n < 3) {
+          mergedPending = true;
+          sessionStorage.setItem(RELOAD_FLAG, String(n + 1));
+          setStatus("已合并 GitHub 上的新数据，正在刷新…", "busy");
+          location.reload();
+          return true;
+        }
+        // 连刷 3 次还对不上：不再自动刷（也不再吞写盘），交给用户手动刷新，
+        // 免得默默地丢掉他正在输入的内容。
+        setStatus("已合并，但页面需要手动刷新一次才生效", "warn");
         return true;
       }
-      if (!out.changed) sessionStorage.removeItem(RELOAD_FLAG);
+      sessionStorage.removeItem(RELOAD_FLAG);
 
       setStatus("已从 GitHub 拉取（" + countRecords(out.db) + " 天记录）", "ok");
       setDetail("上次同步：" + fmtTime(Date.now()));
@@ -2345,7 +2612,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     payload.version = payload.version || 3;
     payload.exportedAt = new Date().toISOString();
     payload.syncMeta = { times: meta.times, deleted: meta.deleted,
-                         weekTimes: meta.weekTimes || {}, weekDeleted: meta.weekDeleted || {} };
+                         weekTimes: meta.weekTimes || {}, weekDeleted: meta.weekDeleted || {},
+                         memoTimes: meta.memoTimes || {}, memoDeleted: meta.memoDeleted || {} };
 
     // 安全阀：把整个库清空时多问一次（清空会连 GitHub 上的备份一起清掉）
     var localCount = countRecords(db);
@@ -2380,7 +2648,8 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
           again.version = again.version || 3;
           again.exportedAt = new Date().toISOString();
           again.syncMeta = { times: meta.times, deleted: meta.deleted,
-                             weekTimes: meta.weekTimes || {}, weekDeleted: meta.weekDeleted || {} };
+                             weekTimes: meta.weekTimes || {}, weekDeleted: meta.weekDeleted || {},
+                             memoTimes: meta.memoTimes || {}, memoDeleted: meta.memoDeleted || {} };
           return remotePush(again, lastSha, "同步每日记录（自动合并后重试）")
             .then(function (j) {
               lastSha = (j && j.content && j.content.sha) || lastSha;
@@ -2593,6 +2862,8 @@ function load(){
     if(DB && !DB.weeks) DB.weeks = {};
     if(DB && !DB.life) DB.life = { items:[] };
     if(DB && !DB.goals) DB.goals = {};
+    if(DB && !DB.memo) DB.memo = { items: [] };
+    if(DB && DB.memo && !Array.isArray(DB.memo.items)) DB.memo.items = [];
   }catch(e){ console.warn("读取本地数据失败", e); }
 }
 var saveTimer = null, dirty = false;
@@ -2676,7 +2947,9 @@ var NUM_FIELDS = ["weight","exercise","water","sleep","meals","vanity","anxiety"
                   "phoneScreen","phoneGoal","pickups","phoneBeforeBed","meditation","focus"];
 var TEXT_FIELDS = ["weather","keyword","hygieneImprove","weekPlan","weekProgress","todayMostImportant",
                    "priority","todo3","reasonNotDone","tomorrowPlan","mainEmotion","trigger","coping","tomorrowAdjust",
-                   "phoneUse","outOfControl","improvement","meditationFeel","other"];
+                   "phoneUse","outOfControl","improvement","meditationFeel","other",
+                   // 新增：饮食记录 / 犯规 / 小小放纵
+                   "dietLog","dietCheat","dietTreat"];
 var BOOL_FIELDS = ["dietDone","dayFocusDone","weekFocusAdvanced","meditationDone","dietLeave","dietStopFull"];
 var RADIO_FIELDS = ["hygieneGrade","moodStable","phoneOk"];
 // 饮食记录：吃了几顿、哪几顿刻意剩了饭、有没有饱了就停
@@ -4389,6 +4662,7 @@ var CSV_COLS = [
   ["date","日期"],["dow","星期"],["weather","天气"],["keyword","今日关键词"],
   ["weight","体重kg"],["exercise","运动min"],["water","饮水ml"],["sleep","睡眠h"],["dietDone","减肥达标"],
   ["meals","今日顿数"],["dietLeave","刻意剩饭"],["mealLeaveList","哪几顿剩了"],["dietStopFull","饱了就停"],
+  ["dietLog","饮食记录"],["dietCheat","犯规"],["dietTreat","小小放纵"],
   ["hygieneDone","卫生完成数"],["hygieneGrade","卫生等级"],["hygieneImprove","卫生最需改进"],
   ["todoQuad1","最重要·象限"],["todoQuad2","次要·象限"],["todoQuad3","顺手做·象限"],
   ["weekPlan","本周最重要的事"],["weekProgress","周进度"],["weekGoals","周重点清单"],
@@ -4444,7 +4718,7 @@ function toCsv(recs){
 function exportJson(){
   var payload = { app:"每日记录", version:3, exportedAt:new Date().toISOString(),
                   records:DB.records, weeks:DB.weeks || {}, life:DB.life || { items:[] },
-                  goals:DB.goals || {} };
+                  goals:DB.goals || {}, memo:DB.memo || { items:[] } };
   download("每日记录-备份-" + stamp() + ".json", JSON.stringify(payload, null, 2), "application/json");
   toast("已导出 " + Object.keys(DB.records).length + " 天记录");
 }
@@ -4472,6 +4746,15 @@ function importJson(file){
     // 人生总览
     if(data && data.life && Array.isArray(data.life.items)){
       DB.life = { items: data.life.items.map(normalizeLifeItem) };
+    }
+    // 备忘录（可能来自新版备份）
+    if(data && data.memo && Array.isArray(data.memo.items)){
+      var have = {};
+      memoItems().forEach(function(x){ have[x.id] = 1; });
+      data.memo.items.forEach(function(x){
+        if(x && x.id && x.text && !have[x.id]) memoItems().push(x);
+      });
+      renderMemo();
     }
     // 周重点（可能来自新版备份）
     if(data && data.weeks && typeof data.weeks === "object"){
@@ -4786,9 +5069,15 @@ function renderHeat(){
     total++; if(!h.none) filled++;
     var stroke = (x.ds === TODAY) ? ' stroke="#3b6ef6" stroke-width="1.8"' :
                  (x.ds === calState.sel ? ' stroke="#e8590c" stroke-width="2"' : "");
+    // 放纵日：只要「犯规」或「小小放纵」记了内容就用暖色，
+    // 让一整年的放纵日一眼能扫出来（完成度仍然留在悬停提示里）。
+    var cl = cheatLevelOfDate(x.ds);
+    var cellFill = cl === 2 ? "#e0523c" : (cl === 1 ? "#f0b429" : lvFill[h.lv]);
     out.push('<rect class="hcell" x="' + px + '" y="' + py + '" width="' + CS + '" height="' + CS + '" rx="3" fill="' +
-      lvFill[h.lv] + '"' + stroke + ' data-calday="' + x.ds + '"><title>' + x.ds + "（周" + DOW_SHORT[(x.d.getDay()+6)%7] +
-      "）　完成度 " + h.pct + "%" + (h.missing.length ? "\n未填：" + h.missing.join("、") : "\n当天记录完整") + '</title></rect>');
+      cellFill + '"' + stroke + ' data-calday="' + x.ds + '"><title>' + x.ds + "（周" + DOW_SHORT[(x.d.getDay()+6)%7] +
+      "）　完成度 " + h.pct + "%" +
+      (cl === 2 ? "\n🔥 放纵日：犯规" : cl === 1 ? "\n🍬 放纵日：小小放纵" : "") +
+      (h.missing.length ? "\n未填：" + h.missing.join("、") : "\n当天记录完整") + '</title></rect>');
   });
   box.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" ' +
     'style="min-width:' + W + 'px" role="img" aria-label="打卡热力图">' + out.join("") + '</svg>';
@@ -5063,6 +5352,197 @@ document.getElementById("wipeAll").onclick = function(){
   renderWeekView();
   toast("已清空全部记录");
 };
+
+/* ==========================================================================
+   新增功能  ——  由 build_pwa.py 注入到主应用 IIFE 内部（「启动」段之前）
+
+   为什么注入到 IIFE 里面而不是像 mobile.js 那样放外面：
+   备忘录要存进 DB、要跟着 GitHub 同步一起走，而 DB / markDirty / persist
+   全都是 IIFE 的局部变量，外部拿不到。注入在里面就能直接用，不必另开一套存储，
+   也不会和主应用的保存/同步逻辑脱节。
+
+   这里只定义函数 + 挂监听，不碰 DB；真正的渲染在 DOMContentLoaded 时进行，
+   那时 init() 已经跑完、load() 已经把数据读进来了。
+   ========================================================================== */
+
+/* ================= 放纵日 =================
+   规则（按需求）：只要「犯规」或「小小放纵」里记了内容，这一天就算放纵日。
+   不额外存一个布尔字段——避免出现「框里有字但标记没勾」这种不一致。 */
+function cheatLevelOf(r){
+  if(!r) return 0;
+  if(String(r.dietCheat || "").trim()) return 2;   // 2 = 犯规（更严重）
+  if(String(r.dietTreat || "").trim()) return 1;   // 1 = 小小放纵
+  return 0;
+}
+function cheatLevelOfDate(date){
+  return cheatLevelOf(DB.records && DB.records[date]);
+}
+
+function renderCheatBadge(){
+  var el = document.getElementById("cheatState");
+  if(!el) return;
+  // ⚠️ 直接读输入框，不要读 DB。
+  // 主应用的 input 监听走的是 onEditDebounced()（180ms 防抖）才 collect() 进 DB，
+  // 而我的监听在它后面触发——读 DB 会拿到上一次的值，标记永远慢一步。
+  var cheatEl = fieldEls("dietCheat")[0];
+  var treatEl = fieldEls("dietTreat")[0];
+  var lv = 0;
+  if(cheatEl && String(cheatEl.value || "").trim()) lv = 2;
+  else if(treatEl && String(treatEl.value || "").trim()) lv = 1;
+  el.className = "cheat-badge" + (lv === 2 ? " cheat on" : lv === 1 ? " treat on" : "");
+  el.textContent = lv === 2 ? "🔥 今天是放纵日（犯规）"
+                 : lv === 1 ? "🍬 今天是放纵日（小小放纵）" : "";
+}
+
+/* ================= 备忘录 ================= */
+function memoItems(){
+  if(!DB.memo || typeof DB.memo !== "object") DB.memo = { items: [] };
+  if(!Array.isArray(DB.memo.items)) DB.memo.items = [];
+  return DB.memo.items;
+}
+/* 未完成的按新建时间倒序排在上面；已完成的沉到最下面 */
+function memoSort(list){
+  return list.slice().sort(function(a, b){
+    var ad = a.done ? 1 : 0, bd = b.done ? 1 : 0;
+    if(ad !== bd) return ad - bd;
+    if(ad === 1) return (b.doneAt || 0) - (a.doneAt || 0);   // 最近完成的靠前
+    return (b.createdAt || 0) - (a.createdAt || 0);          // 新建的靠前
+  });
+}
+function memoItemHTML(it){
+  return '<div class="memo-item' + (it.done ? " done" : "") + '">' +
+    '<label class="memo-chk"><input type="checkbox" data-memo-toggle="' + escH(it.id) + '"' +
+      (it.done ? " checked" : "") + ' aria-label="标记完成"></label>' +
+    '<span class="memo-text">' + escH(it.text) + '</span>' +
+    '<button type="button" class="memo-del" data-memo-del="' + escH(it.id) + '" title="删除">×</button>' +
+    '</div>';
+}
+function renderMemo(){
+  var list = memoSort(memoItems());
+  var html = list.length
+    ? list.map(memoItemHTML).join("")
+    : '<div class="memo-empty">还没有备忘。写一条，做完打勾，它会自动沉到最下面。</div>';
+  ["memoList", "memoFloatList"].forEach(function(id){
+    var box = document.getElementById(id);
+    if(box) box.innerHTML = html;
+  });
+  var open = list.filter(function(x){ return !x.done; }).length;
+  var txt = !list.length ? "" : (open ? open + " 项待办" : "全部完成 ✓");
+  ["memoCount", "memoFloatCount"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.textContent = txt;
+  });
+}
+function memoAdd(text){
+  text = String(text == null ? "" : text).trim();
+  if(!text) return false;
+  memoItems().push({
+    id: "m" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+    text: text, done: false, createdAt: Date.now(), doneAt: null
+  });
+  markDirty(); renderMemo();
+  return true;
+}
+function memoToggle(id, done){
+  var it = memoItems().filter(function(x){ return x.id === id; })[0];
+  if(!it) return;
+  it.done = !!done;
+  it.doneAt = done ? Date.now() : null;
+  markDirty(); renderMemo();
+}
+function memoDel(id){
+  DB.memo.items = memoItems().filter(function(x){ return x.id !== id; });
+  markDirty(); renderMemo();
+}
+
+/* 备忘输入框：卡片里和悬浮窗里各一个，共用一个添加逻辑 */
+function wireMemo(){
+  [["memoInput", "memoAddBtn"], ["memoFloatInput", "memoFloatAdd"]].forEach(function(pair){
+    var inp = document.getElementById(pair[0]);
+    if(inp && !inp.dataset.memoWired){
+      inp.dataset.memoWired = "1";
+      inp.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ e.preventDefault(); if(memoAdd(inp.value)) inp.value = ""; }
+      });
+    }
+    var btn = document.getElementById(pair[1]);
+    if(btn && !btn.dataset.memoWired){
+      btn.dataset.memoWired = "1";
+      btn.addEventListener("click", function(){
+        if(inp && memoAdd(inp.value)) inp.value = "";
+      });
+    }
+  });
+}
+
+/* 勾选 / 删除 / 悬浮窗收起：都走事件委托，卡片和悬浮窗共用一套 */
+function wireMemoDelegates(){
+  document.addEventListener("change", function(e){
+    var t = e.target;
+    if(t && t.matches && t.matches("[data-memo-toggle]")){
+      memoToggle(t.getAttribute("data-memo-toggle"), t.checked);
+    }
+  });
+  document.addEventListener("click", function(e){
+    var del = e.target && e.target.closest ? e.target.closest("[data-memo-del]") : null;
+    if(del){ memoDel(del.getAttribute("data-memo-del")); return; }
+    var head = e.target && e.target.closest ? e.target.closest("#memoFloat .mf-head") : null;
+    if(head){
+      var box = document.getElementById("memoFloat");
+      if(box){
+        box.classList.toggle("collapsed");
+        // 记住收起状态：下次打开还是你上次选的样子，不用每次手动收
+        try{
+          localStorage.setItem("memo_float_collapsed", box.classList.contains("collapsed") ? "1" : "0");
+        }catch(err){}
+      }
+    }
+  });
+}
+
+/* 悬浮窗上次是收起的话，这次也保持收起 */
+function restoreMemoFloat(){
+  var box = document.getElementById("memoFloat");
+  if(!box) return;
+  try{
+    if(localStorage.getItem("memo_float_collapsed") === "1") box.classList.add("collapsed");
+  }catch(e){}
+}
+
+/* 输入「犯规 / 小小放纵」时实时更新放纵日标记 */
+function wireCheatBadge(){
+  ["input", "change"].forEach(function(ev){
+    document.addEventListener(ev, function(e){
+      var t = e.target;
+      if(t && t.matches && t.matches('[data-field="dietCheat"],[data-field="dietTreat"]')){
+        renderCheatBadge();
+      }
+    });
+  });
+  // 换日期时 renderForm 会改写 #dateText，借此把标记一起刷新
+  var dt = document.getElementById("dateText");
+  if(dt){
+    new MutationObserver(renderCheatBadge).observe(dt, {
+      childList: true, characterData: true, subtree: true,
+    });
+  }
+}
+
+function bootExtra(){
+  wireMemo();
+  wireMemoDelegates();
+  wireCheatBadge();
+  restoreMemoFloat();
+  renderMemo();
+  renderCheatBadge();
+}
+
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded", bootExtra);
+}else{
+  setTimeout(bootExtra, 0);
+}
+
 
 /* ================= 启动 ================= */
 function init(){
@@ -5384,6 +5864,40 @@ init();
     mtb.classList.toggle("done", pct >= 100);
   }
 
+  /* ---------------- 记录页：前一天 / 后一天 ----------------
+     电脑版这两个按钮在右侧悬浮窗里，而窄屏把整个悬浮窗隐藏了，
+     结果手机上根本没法换日期（只剩一个「回到今天」也用不上）。
+     这里把两个按钮挪到日期条上，逻辑直接复用悬浮窗里那两个 ——
+     它们是用 bindClick 绑的 onclick，隐藏元素上 .click() 照样会触发，
+     所以不用把 gotoDate 再实现一遍。 */
+  function buildDayNav() {
+    if (document.getElementById("mDayPrev")) return;
+    var top = document.querySelector(".record-top");
+    var label = document.getElementById("datelabel");
+    if (!top || !label) return;
+
+    function mk(id, glyph, title, targetId) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = id;
+      b.className = "mday-btn";
+      b.textContent = glyph;
+      b.title = title;
+      b.setAttribute("aria-label", title);
+      b.addEventListener("click", function () {
+        var t = document.getElementById(targetId);
+        if (t) t.click();          // 复用电脑版悬浮窗里的按钮
+      });
+      return b;
+    }
+
+    top.insertBefore(mk("mDayPrev", "◀", "前一天", "fbPrevDay"), label);
+    var next = mk("mDayNext", "▶", "后一天", "fbNextDay");
+    var badge = document.getElementById("todayBadge");
+    if (badge && badge.parentNode === top) badge.parentNode.insertBefore(next, badge.nextSibling);
+    else label.parentNode.insertBefore(next, label.nextSibling);
+  }
+
   /* ---------------- 应用状态 ---------------- */
   function apply() {
     var on = mq.matches;
@@ -5393,6 +5907,7 @@ init();
       buildNav();
       syncNav();
       compactClock();
+      buildDayNav();
       var fb = document.getElementById("floatBar");
       if (fb) fb.classList.add("tucked");
       buildMtb();
@@ -5452,5 +5967,21 @@ init();
 })();
 
 </script>
+
+<aside id="memoFloat" aria-label="备忘录悬浮窗">
+  <div class="mf-head" title="点一下收起 / 展开">
+    <span>📝 备忘录</span>
+    <span class="mf-count" id="memoFloatCount"></span>
+    <span class="mf-caret">▾</span>
+  </div>
+  <div class="mf-body">
+    <div class="memo-add">
+      <input type="text" id="memoFloatInput" placeholder="写一条，按回车添加">
+      <button class="btn sm" id="memoFloatAdd">＋</button>
+    </div>
+    <div class="memo-list" id="memoFloatList"></div>
+  </div>
+</aside>
+
 </body>
 </html>
