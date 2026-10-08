@@ -148,6 +148,72 @@
       "dietLog": "午饭 自制恰巴塔 晚饭 一杯无糖奶茶",
       "dietCheat": "无",
       "dietTreat": "无"
+    },
+    "2026-10-09": {
+      "date": "2026-10-09",
+      "weight": 1,
+      "exercise": null,
+      "water": null,
+      "sleep": null,
+      "meals": null,
+      "vanity": null,
+      "anxiety": null,
+      "depression": null,
+      "phoneScreen": null,
+      "phoneGoal": null,
+      "pickups": null,
+      "phoneBeforeBed": null,
+      "meditation": null,
+      "focus": null,
+      "weather": "",
+      "keyword": "",
+      "hygieneImprove": "",
+      "weekPlan": "",
+      "weekProgress": "",
+      "todayMostImportant": "",
+      "priority": "",
+      "todo3": "",
+      "reasonNotDone": "",
+      "tomorrowPlan": "",
+      "mainEmotion": "",
+      "trigger": "",
+      "coping": "",
+      "tomorrowAdjust": "",
+      "phoneUse": "",
+      "outOfControl": "",
+      "improvement": "",
+      "meditationFeel": "",
+      "other": "",
+      "dietLog": "",
+      "dietCheat": "",
+      "dietTreat": "",
+      "dietDone": false,
+      "dayFocusDone": false,
+      "weekFocusAdvanced": false,
+      "meditationDone": false,
+      "dietLeave": false,
+      "dietStopFull": false,
+      "hygieneGrade": "",
+      "moodStable": "",
+      "phoneOk": "",
+      "hygiene": {
+        "env": false,
+        "afterMeal": false,
+        "chores": false,
+        "clothes": false,
+        "putBack": false,
+        "personal": false
+      },
+      "mealLeave": {
+        "breakfast": false,
+        "lunch": false,
+        "dinner": false,
+        "snack": false
+      },
+      "emotions": [],
+      "todo": null,
+      "goals": [],
+      "quad": null
     }
   },
   "weeks": {
@@ -254,11 +320,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T16:19:01.324Z",
+  "exportedAt": "2026-10-08T16:26:59.136Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
-      "mmuzokqr42kuv1": 1791472683231
+      "mmuzokqr42kuv1": 1791472683231,
+      "2026-10-09": 1791476813278
     },
     "deleted": {},
     "weekTimes": {
@@ -272,7 +339,8 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
-      "mmuzokqr42kuv1": 1791472683231
+      "mmuzokqr42kuv1": 1791472683231,
+      "2026-10-09": 1791476813278
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
