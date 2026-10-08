@@ -85,9 +85,9 @@
       "water": 1000,
       "sleep": 8,
       "meals": null,
-      "vanity": null,
-      "anxiety": null,
-      "depression": null,
+      "vanity": 4,
+      "anxiety": 7,
+      "depression": 2,
       "emotionScore": null,
       "phoneScreen": null,
       "phoneGoal": null,
@@ -96,7 +96,7 @@
       "meditation": null,
       "focus": null,
       "weather": "晴",
-      "keyword": "",
+      "keyword": "学习",
       "hygieneImprove": "",
       "weekPlan": "",
       "weekProgress": "复盘化妆笔记",
@@ -137,7 +137,10 @@
         "dinner": true,
         "snack": false
       },
-      "emotions": [],
+      "emotions": [
+        "虚荣心",
+        "焦虑"
+      ],
       "todo": null,
       "goals": [],
       "quad": null,
@@ -253,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:21:04.184Z",
+  "exportedAt": "2026-10-08T15:21:17.984Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472860116
+      "2026-10-08": 1791472874982
     },
     "deleted": {},
     "weekTimes": {
@@ -273,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472860116
+      "2026-10-08": 1791472874982
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
