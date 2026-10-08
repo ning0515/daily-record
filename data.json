@@ -129,7 +129,7 @@
         "chores": true,
         "clothes": true,
         "putBack": true,
-        "personal": false
+        "personal": true
       },
       "mealLeave": {
         "breakfast": false,
@@ -253,12 +253,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:19:05.717Z",
+  "exportedAt": "2026-10-08T15:19:41.545Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472742715
+      "2026-10-08": 1791472778542
     },
     "deleted": {},
     "weekTimes": {
@@ -273,7 +273,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472742715
+      "2026-10-08": 1791472778542
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
