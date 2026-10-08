@@ -109,10 +109,10 @@
       "trigger": "等待化妆课",
       "coping": "等待",
       "tomorrowAdjust": "该干啥就干啥",
-      "phoneUse": "",
-      "outOfControl": "",
-      "improvement": "",
-      "meditationFeel": "",
+      "phoneUse": "微信 小红书",
+      "outOfControl": "是",
+      "improvement": "更加努力一点",
+      "meditationFeel": "没有",
       "other": "",
       "dietDone": true,
       "dayFocusDone": false,
@@ -256,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:23:28.668Z",
+  "exportedAt": "2026-10-08T15:24:15.958Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473005665
+      "2026-10-08": 1791473051619
     },
     "deleted": {},
     "weekTimes": {
@@ -276,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473005665
+      "2026-10-08": 1791473051619
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
