@@ -232,12 +232,22 @@
     "meals": 3
   },
   "memo": {
-    "items": []
+    "items": [
+      {
+        "id": "mmuzokju6j07x3",
+        "text": "收拾储物间",
+        "done": false,
+        "createdAt": 1791472665966,
+        "doneAt": null
+      }
+    ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:14:12.412Z",
+  "exportedAt": "2026-10-08T15:17:49.321Z",
   "syncMeta": {
-    "times": {},
+    "times": {
+      "mmuzokju6j07x3": 1791472666317
+    },
     "deleted": {},
     "weekTimes": {
       "2026-10-05": 1791373123957,
@@ -248,7 +258,9 @@
       "2026-11-09": 1791369300952
     },
     "weekDeleted": {},
-    "memoTimes": {},
+    "memoTimes": {
+      "mmuzokju6j07x3": 1791472666317
+    },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
       "mmuzofg7m4s7wr": 1791472447129,
