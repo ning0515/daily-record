@@ -3008,7 +3008,23 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
     brEl.value = cfg.branch || "main";
     pathEl.value = cfg.path || "data.json";
     tokEl.value = cfg.token || "";
-    if (delayEl) delayEl.value = String(pushDelayMs());
+    if (delayEl) {
+      // 配置里的值可能不在预设档位里（比如手工改过配置 / 旧版本留下的），
+      // 这时 <select> 会显示空白，点保存还会被悄悄重置成默认值。
+      // 所以补一个对应的临时选项，保证「显示什么就是什么」。
+      var want = String(pushDelayMs());
+      var hit = false;
+      for (var oi = 0; oi < delayEl.options.length; oi++) {
+        if (delayEl.options[oi].value === want) { hit = true; break; }
+      }
+      if (!hit) {
+        var opt = document.createElement("option");
+        opt.value = want;
+        opt.textContent = "停手 " + Math.round(Number(want) / 1000) + " 秒后";
+        delayEl.appendChild(opt);
+      }
+      delayEl.value = want;
+    }
     apEl.checked = !!cfg.autoPull;
     auEl.checked = !!cfg.autoPush;
 
