@@ -243,18 +243,18 @@
       {
         "id": "mmuzokqr42kuv1",
         "text": "整理厨房",
-        "done": false,
+        "done": true,
         "createdAt": 1791472674928,
-        "doneAt": null
+        "doneAt": 1791472682879
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:17:58.282Z",
+  "exportedAt": "2026-10-08T15:18:06.234Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
-      "mmuzokqr42kuv1": 1791472675279
+      "mmuzokqr42kuv1": 1791472683231
     },
     "deleted": {},
     "weekTimes": {
@@ -268,7 +268,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
-      "mmuzokqr42kuv1": 1791472675279
+      "mmuzokqr42kuv1": 1791472683231
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
