@@ -1386,7 +1386,11 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 
 /* ---------- 备忘录悬浮窗（只给电脑版） ---------- */
 #memoFloat {
-  display: none;                 /* 默认不显示，宽屏媒体查询里才打开 */
+  /* 电脑版一律存在。
+     之前这里写的是「窄于 1180px 就 display:none」，结果窗口一窄就整个消失，
+     用户只会觉得「功能没了」。现在改成：永远显示，窄屏时由 JS 自动收起成标题条，
+     想用点一下就能展开。 */
+  display: flex;
   position: fixed;
   left: 16px;
   bottom: 16px;
@@ -1421,11 +1425,11 @@ button, .btn, .mini, .tab, label, .badge, .chk, .mtag {
 /* 收起后只剩标题条 */
 #memoFloat.collapsed { max-height: none; }
 #memoFloat.collapsed .mf-body { display: none; }
+/* 收起时把标题条做得更像一个「按钮」，免得用户以为只是个标签 */
+#memoFloat.collapsed .mf-head { border-bottom: 0; }
+#memoFloat.collapsed .mf-caret { transform: rotate(-90deg); }
+#memoFloat .mf-caret { transition: transform .18s; }
 
-/* 宽屏才显示悬浮窗：窄一点的笔记本上它会盖住正文 */
-@media (min-width: 1180px) {
-  #memoFloat { display: flex; }
-}
 /* 手机上不显示（底部有标签栏，会打架），改用记录页里的备忘录卡片 */
 @media (max-width: 760px) {
   #memoFloat { display: none !important; }
@@ -5500,13 +5504,18 @@ function wireMemoDelegates(){
   });
 }
 
-/* 悬浮窗上次是收起的话，这次也保持收起 */
+/* 悬浮窗的初始状态：
+   - 用户手动收过  → 一直按他的选择
+   - 从没动过 + 窗口窄 → 自动收起成标题条（省地方，但依然看得见、点得开）
+   - 从没动过 + 窗口宽 → 展开
+   关键是「永远不消失」——宁可收起，也不要让人找不到。 */
 function restoreMemoFloat(){
   var box = document.getElementById("memoFloat");
   if(!box) return;
-  try{
-    if(localStorage.getItem("memo_float_collapsed") === "1") box.classList.add("collapsed");
-  }catch(e){}
+  var pref = null;
+  try{ pref = localStorage.getItem("memo_float_collapsed"); }catch(e){}
+  if(pref === "1") box.classList.add("collapsed");
+  else if(pref === null && window.innerWidth < 1180) box.classList.add("collapsed");
 }
 
 /* 输入「犯规 / 小小放纵」时实时更新放纵日标记 */
