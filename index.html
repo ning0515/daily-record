@@ -2875,12 +2875,18 @@ function load(){
     if(DB && !DB.life) DB.life = { items:[] };
     if(DB && !DB.goals) DB.goals = {};
     if(DB && !DB.memo) DB.memo = { items: [] };
-    // 情绪分已整个移除：顺手把历史记录里残留的值删掉，免得它还留在导出和同步的文件里
+    // 情绪分已整个移除：顺手把历史记录里残留的值删掉，免得它还留在导出和同步的文件里。
+    // 删完立刻标脏存盘——否则要等用户下次编辑才会写回去，
+    // 这中间万一触发同步，推上去的文件里还带着这个字段。
     if(DB && DB.records){
+      var _stripped = false;
       Object.keys(DB.records).forEach(function(k){
         var rec = DB.records[k];
-        if(rec && typeof rec === "object" && "emotionScore" in rec) delete rec.emotionScore;
+        if(rec && typeof rec === "object" && "emotionScore" in rec){
+          delete rec.emotionScore; _stripped = true;
+        }
       });
+      if(_stripped) markDirty();
     }
     if(DB && DB.memo && !Array.isArray(DB.memo.items)) DB.memo.items = [];
   }catch(e){ console.warn("读取本地数据失败", e); }
