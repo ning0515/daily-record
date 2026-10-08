@@ -103,8 +103,8 @@
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
-      "reasonNotDone": "",
-      "tomorrowPlan": "",
+      "reasonNotDone": "化妆后未复盘",
+      "tomorrowPlan": "明天写化妆笔记",
       "mainEmotion": "",
       "trigger": "",
       "coping": "",
@@ -253,12 +253,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:20:27.477Z",
+  "exportedAt": "2026-10-08T15:20:47.585Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472824475
+      "2026-10-08": 1791472844583
     },
     "deleted": {},
     "weekTimes": {
@@ -273,7 +273,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472824475
+      "2026-10-08": 1791472844583
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
