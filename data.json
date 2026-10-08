@@ -80,7 +80,7 @@
     },
     "2026-10-08": {
       "date": "2026-10-08",
-      "weight": null,
+      "weight": 83.85,
       "exercise": null,
       "water": null,
       "sleep": null,
@@ -253,12 +253,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:19:41.545Z",
+  "exportedAt": "2026-10-08T15:19:49.221Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472778542
+      "2026-10-08": 1791472785089
     },
     "deleted": {},
     "weekTimes": {
@@ -273,7 +273,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791472778542
+      "2026-10-08": 1791472785089
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
