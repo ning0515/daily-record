@@ -87,7 +87,7 @@
       "meals": 2,
       "vanity": 4,
       "anxiety": 7,
-      "depression": 2,
+      "depression": 3,
       "emotionScore": null,
       "phoneScreen": 6.47,
       "phoneGoal": 3,
@@ -256,12 +256,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T15:25:14.771Z",
+  "exportedAt": "2026-10-08T15:25:29.443Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473111770
+      "2026-10-08": 1791473126442
     },
     "deleted": {},
     "weekTimes": {
@@ -276,7 +276,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-08": 1791473111770
+      "2026-10-08": 1791473126442
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
