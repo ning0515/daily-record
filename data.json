@@ -140,7 +140,10 @@
       "emotions": [],
       "todo": null,
       "goals": [],
-      "quad": null
+      "quad": null,
+      "weekGoals": "",
+      "weekP0Done": 0,
+      "weekP1Done": 0
     }
   },
   "weeks": {
@@ -229,11 +232,11 @@
     "meals": 3
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T03:39:04.954Z",
+  "exportedAt": "2026-10-08T04:12:55.526Z",
   "syncMeta": {
     "times": {
       "2026-10-07": 1791374460020,
-      "2026-10-08": 1791430741952
+      "2026-10-08": 1791432765994
     },
     "deleted": {},
     "weekTimes": {
