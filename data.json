@@ -190,7 +190,7 @@
       "dietDone": true,
       "dayFocusDone": false,
       "weekFocusAdvanced": true,
-      "meditationDone": false,
+      "meditationDone": true,
       "dietLeave": true,
       "dietStopFull": true,
       "hygieneGrade": "优",
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T14:55:48.076Z",
+  "exportedAt": "2026-10-09T14:55:57.654Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557741663
+      "2026-10-09": 1791557752652
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557741663
+      "2026-10-09": 1791557752652
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
