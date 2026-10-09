@@ -179,7 +179,7 @@
       "trigger": "等待户口本快递",
       "coping": "早醒 等待",
       "tomorrowAdjust": "平常心",
-      "phoneUse": "抖音 看视频",
+      "phoneUse": "抖音 看化妆视频",
       "outOfControl": "",
       "improvement": "",
       "meditationFeel": "",
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T11:01:12.284Z",
+  "exportedAt": "2026-10-09T11:01:27.672Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539597318
+      "2026-10-09": 1791543677703
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539597318
+      "2026-10-09": 1791543677703
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
