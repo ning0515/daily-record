@@ -213,7 +213,10 @@
       "emotions": [],
       "todo": null,
       "goals": [],
-      "quad": null
+      "quad": null,
+      "weekGoals": "",
+      "weekP0Done": 0,
+      "weekP1Done": 0
     }
   },
   "weeks": {
@@ -320,12 +323,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-08T16:26:59.136Z",
+  "exportedAt": "2026-10-09T01:52:45.973Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
-      "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791476813278
+      "mmuzokqr42kuv1": 1791472683231
     },
     "deleted": {},
     "weekTimes": {
@@ -339,8 +341,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
-      "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791476813278
+      "mmuzokqr42kuv1": 1791472683231
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
