@@ -156,9 +156,9 @@
       "water": 1000,
       "sleep": 8,
       "meals": 2.5,
-      "vanity": null,
-      "anxiety": null,
-      "depression": null,
+      "vanity": 2,
+      "anxiety": 4,
+      "depression": 1,
       "phoneScreen": null,
       "phoneGoal": null,
       "pickups": null,
@@ -166,20 +166,20 @@
       "meditation": null,
       "focus": null,
       "weather": "晴",
-      "keyword": "",
+      "keyword": "休息",
       "hygieneImprove": "",
       "weekPlan": "",
-      "weekProgress": "",
+      "weekProgress": "学化妆",
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
-      "reasonNotDone": "",
-      "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
-      "phoneUse": "",
+      "reasonNotDone": "拖延收拾杂物间",
+      "tomorrowPlan": "不想做的事情上午完成",
+      "mainEmotion": "焦虑",
+      "trigger": "等待户口本快递",
+      "coping": "早醒 等待",
+      "tomorrowAdjust": "平常心",
+      "phoneUse": "抖音 看视频",
       "outOfControl": "",
       "improvement": "",
       "meditationFeel": "",
@@ -189,7 +189,7 @@
       "dietTreat": "",
       "dietDone": false,
       "dayFocusDone": false,
-      "weekFocusAdvanced": false,
+      "weekFocusAdvanced": true,
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": true,
@@ -323,12 +323,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T09:51:39.006Z",
+  "exportedAt": "2026-10-09T09:53:22.320Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539494003
+      "2026-10-09": 1791539597318
     },
     "deleted": {},
     "weekTimes": {
@@ -343,7 +343,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539494003
+      "2026-10-09": 1791539597318
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
