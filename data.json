@@ -159,8 +159,8 @@
       "vanity": 2,
       "anxiety": 4,
       "depression": 1,
-      "phoneScreen": null,
-      "phoneGoal": null,
+      "phoneScreen": 6.5,
+      "phoneGoal": 4,
       "pickups": null,
       "phoneBeforeBed": null,
       "meditation": null,
@@ -194,7 +194,7 @@
       "dietLeave": false,
       "dietStopFull": true,
       "hygieneGrade": "优",
-      "moodStable": "",
+      "moodStable": "稳定",
       "phoneOk": "",
       "hygiene": {
         "env": true,
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T11:01:27.672Z",
+  "exportedAt": "2026-10-09T14:52:31.716Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791543677703
+      "2026-10-09": 1791557545157
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791543677703
+      "2026-10-09": 1791557545157
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
