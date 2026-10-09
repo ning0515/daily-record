@@ -307,13 +307,6 @@
   "memo": {
     "items": [
       {
-        "id": "mmuzokju6j07x3",
-        "text": "收拾储物间",
-        "done": false,
-        "createdAt": 1791472665966,
-        "doneAt": null
-      },
-      {
         "id": "mmuzokqr42kuv1",
         "text": "整理厨房",
         "done": true,
@@ -323,10 +316,9 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T09:53:35.346Z",
+  "exportedAt": "2026-10-09T11:01:12.284Z",
   "syncMeta": {
     "times": {
-      "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791539597318
     },
@@ -341,7 +333,6 @@
     },
     "weekDeleted": {},
     "memoTimes": {
-      "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791539597318
     },
@@ -353,7 +344,8 @@
       "mmuzofnkz6fzot": 1791472448682,
       "mmuzofodyza7pk": 1791472448682,
       "mmuzofp22c9e6m": 1791472449035,
-      "mmuzofpt801dzb": 1791472449409
+      "mmuzofpt801dzb": 1791472449409,
+      "mmuzokju6j07x3": 1791543667276
     }
   }
 }
