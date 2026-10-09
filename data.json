@@ -165,7 +165,7 @@
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
-      "weather": "",
+      "weather": "晴",
       "keyword": "",
       "hygieneImprove": "",
       "weekPlan": "",
@@ -323,12 +323,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T04:55:12.978Z",
+  "exportedAt": "2026-10-09T04:55:22.187Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791521707975
+      "2026-10-09": 1791521715098
     },
     "deleted": {},
     "weekTimes": {
@@ -343,7 +343,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791521707975
+      "2026-10-09": 1791521715098
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
