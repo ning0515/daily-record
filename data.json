@@ -290,9 +290,9 @@
         "id": "gmuxuoxzmu47a",
         "q": "Q2",
         "title": "学化妆",
-        "done": false,
+        "done": true,
         "createdAt": "2026-10-07",
-        "doneAt": null,
+        "doneAt": "2026-10-09",
         "pin": null
       }
     ]
@@ -323,7 +323,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T01:53:22.709Z",
+  "exportedAt": "2026-10-09T04:49:24.850Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
