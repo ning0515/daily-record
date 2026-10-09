@@ -161,7 +161,7 @@
       "depression": 1,
       "phoneScreen": 7.2,
       "phoneGoal": 4,
-      "pickups": null,
+      "pickups": 106,
       "phoneBeforeBed": 10,
       "meditation": 0,
       "focus": 2,
@@ -181,9 +181,9 @@
       "tomorrowAdjust": "平常心",
       "phoneUse": "抖音 看化妆视频",
       "outOfControl": "",
-      "improvement": "",
-      "meditationFeel": "",
-      "other": "",
+      "improvement": "少看抖音",
+      "meditationFeel": "没有 一直睡觉了",
+      "other": "睡眠要更规律",
       "dietLog": "早上 两个肉包子 一个蛋清   加餐 八个小李子 午餐 半份大盘鸡盖面 晚餐 早上剩下的茶叶蛋",
       "dietCheat": "",
       "dietTreat": "",
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T14:54:47.772Z",
+  "exportedAt": "2026-10-09T14:55:48.076Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557678522
+      "2026-10-09": 1791557741663
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557678522
+      "2026-10-09": 1791557741663
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
