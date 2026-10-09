@@ -154,8 +154,8 @@
       "weight": 83.15,
       "exercise": null,
       "water": 1000,
-      "sleep": null,
-      "meals": 2,
+      "sleep": 8,
+      "meals": 2.5,
       "vanity": null,
       "anxiety": null,
       "depression": null,
@@ -206,8 +206,8 @@
       },
       "mealLeave": {
         "breakfast": false,
-        "lunch": false,
-        "dinner": false,
+        "lunch": true,
+        "dinner": true,
         "snack": false
       },
       "emotions": [],
@@ -323,12 +323,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T09:50:30.792Z",
+  "exportedAt": "2026-10-09T09:51:12.747Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539424717
+      "2026-10-09": 1791539467293
     },
     "deleted": {},
     "weekTimes": {
@@ -343,7 +343,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539424717
+      "2026-10-09": 1791539467293
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
