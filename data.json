@@ -184,7 +184,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "早上 两个肉包子 一个蛋清   加餐 八个小李子 午餐 半份大盘鸡盖面 晚餐 无",
+      "dietLog": "早上 两个肉包子 一个蛋清   加餐 八个小李子 午餐 半份大盘鸡盖面 晚餐 早上剩下的茶叶蛋",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -200,7 +200,7 @@
         "env": true,
         "afterMeal": true,
         "chores": false,
-        "clothes": false,
+        "clothes": true,
         "putBack": false,
         "personal": false
       },
@@ -323,12 +323,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T09:51:12.747Z",
+  "exportedAt": "2026-10-09T09:51:32.394Z",
   "syncMeta": {
     "times": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539467293
+      "2026-10-09": 1791539487392
     },
     "deleted": {},
     "weekTimes": {
@@ -343,7 +343,7 @@
     "memoTimes": {
       "mmuzokju6j07x3": 1791472666317,
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791539467293
+      "2026-10-09": 1791539487392
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
