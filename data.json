@@ -199,10 +199,10 @@
       "hygiene": {
         "env": true,
         "afterMeal": true,
-        "chores": false,
+        "chores": true,
         "clothes": true,
-        "putBack": false,
-        "personal": false
+        "putBack": true,
+        "personal": true
       },
       "mealLeave": {
         "breakfast": false,
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T14:54:18.246Z",
+  "exportedAt": "2026-10-09T14:54:26.045Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557653245
+      "2026-10-09": 1791557661043
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557653245
+      "2026-10-09": 1791557661043
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
