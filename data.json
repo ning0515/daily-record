@@ -164,7 +164,7 @@
       "pickups": null,
       "phoneBeforeBed": null,
       "meditation": null,
-      "focus": null,
+      "focus": 2,
       "weather": "晴",
       "keyword": "休息",
       "hygieneImprove": "",
@@ -195,7 +195,7 @@
       "dietStopFull": true,
       "hygieneGrade": "优",
       "moodStable": "稳定",
-      "phoneOk": "",
+      "phoneOk": "未达标",
       "hygiene": {
         "env": true,
         "afterMeal": true,
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T14:53:20.679Z",
+  "exportedAt": "2026-10-09T14:53:52.523Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557572689
+      "2026-10-09": 1791557627521
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557572689
+      "2026-10-09": 1791557627521
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
