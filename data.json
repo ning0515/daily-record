@@ -152,8 +152,8 @@
     "2026-10-09": {
       "date": "2026-10-09",
       "weight": 83.15,
-      "exercise": null,
-      "water": 1000,
+      "exercise": 40,
+      "water": 1500,
       "sleep": 8,
       "meals": 2.5,
       "vanity": 2,
@@ -187,11 +187,11 @@
       "dietLog": "早上 两个肉包子 一个蛋清   加餐 八个小李子 午餐 半份大盘鸡盖面 晚餐 早上剩下的茶叶蛋",
       "dietCheat": "",
       "dietTreat": "",
-      "dietDone": false,
+      "dietDone": true,
       "dayFocusDone": false,
       "weekFocusAdvanced": true,
       "meditationDone": false,
-      "dietLeave": false,
+      "dietLeave": true,
       "dietStopFull": true,
       "hygieneGrade": "优",
       "moodStable": "稳定",
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T14:53:52.523Z",
+  "exportedAt": "2026-10-09T14:54:18.246Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557627521
+      "2026-10-09": 1791557653245
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557627521
+      "2026-10-09": 1791557653245
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
