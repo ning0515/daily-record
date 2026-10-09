@@ -162,8 +162,8 @@
       "phoneScreen": 7.2,
       "phoneGoal": 4,
       "pickups": null,
-      "phoneBeforeBed": null,
-      "meditation": null,
+      "phoneBeforeBed": 10,
+      "meditation": 0,
       "focus": 2,
       "weather": "晴",
       "keyword": "休息",
@@ -316,11 +316,11 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-09T14:54:26.045Z",
+  "exportedAt": "2026-10-09T14:54:47.772Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557661043
+      "2026-10-09": 1791557678522
     },
     "deleted": {},
     "weekTimes": {
@@ -334,7 +334,7 @@
     "weekDeleted": {},
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
-      "2026-10-09": 1791557661043
+      "2026-10-09": 1791557678522
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
