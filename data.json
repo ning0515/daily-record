@@ -392,18 +392,26 @@
         "done": false,
         "createdAt": 1791594917843,
         "doneAt": null
+      },
+      {
+        "id": "mmv1q73asjpaf1",
+        "text": "扫描身份证和户口本",
+        "done": false,
+        "createdAt": 1791596329588,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T01:15:23.198Z",
+  "exportedAt": "2026-10-10T01:38:54.947Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
       "2026-10-10": 1791594892508,
       "mmv1pcnpphgi90": 1791594910060,
-      "mmv1pctznfmygk": 1791594918194
+      "mmv1pctznfmygk": 1791594918194,
+      "mmv1q73asjpaf1": 1791596329942
     },
     "deleted": {},
     "weekTimes": {
@@ -420,7 +428,8 @@
       "2026-10-09": 1791557752652,
       "2026-10-10": 1791594892508,
       "mmv1pcnpphgi90": 1791594910060,
-      "mmv1pctznfmygk": 1791594918194
+      "mmv1pctznfmygk": 1791594918194,
+      "mmv1q73asjpaf1": 1791596329942
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
