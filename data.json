@@ -225,9 +225,9 @@
       "water": null,
       "sleep": null,
       "meals": null,
-      "vanity": null,
-      "anxiety": null,
-      "depression": null,
+      "vanity": 2,
+      "anxiety": 3,
+      "depression": 1,
       "phoneScreen": null,
       "phoneGoal": null,
       "pickups": null,
@@ -244,10 +244,10 @@
       "todo3": "",
       "reasonNotDone": "",
       "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
+      "mainEmotion": "焦虑",
+      "trigger": "镜子快递需要退回 户口本快递未到",
       "coping": "",
-      "tomorrowAdjust": "",
+      "tomorrowAdjust": "不管 ",
       "phoneUse": "",
       "outOfControl": "",
       "improvement": "",
@@ -279,7 +279,9 @@
         "dinner": false,
         "snack": false
       },
-      "emotions": [],
+      "emotions": [
+        "焦虑"
+      ],
       "todo": null,
       "goals": [],
       "quad": null
@@ -403,12 +405,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T07:29:56.266Z",
+  "exportedAt": "2026-10-10T07:31:34.885Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791617391264,
+      "2026-10-10": 1791617489883,
       "mmv1pcnpphgi90": 1791594910060,
       "mmv1pctznfmygk": 1791594918194,
       "mmv1q73asjpaf1": 1791596329942
@@ -426,7 +428,7 @@
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791617391264,
+      "2026-10-10": 1791617489883,
       "mmv1pcnpphgi90": 1791594910060,
       "mmv1pctznfmygk": 1791594918194,
       "mmv1q73asjpaf1": 1791596329942
