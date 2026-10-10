@@ -230,10 +230,10 @@
       "depression": 1,
       "phoneScreen": 8.5,
       "phoneGoal": 3,
-      "pickups": 1,
-      "phoneBeforeBed": null,
-      "meditation": null,
-      "focus": null,
+      "pickups": 115,
+      "phoneBeforeBed": 15,
+      "meditation": 0,
+      "focus": 1,
       "weather": "晴",
       "keyword": "拖延",
       "hygieneImprove": "衣服没来得及洗",
@@ -248,11 +248,11 @@
       "trigger": "镜子快递需要退回 户口本快递未到",
       "coping": "频繁看快递进度",
       "tomorrowAdjust": "不管  等着就是了",
-      "phoneUse": "",
-      "outOfControl": "",
-      "improvement": "",
-      "meditationFeel": "",
-      "other": "",
+      "phoneUse": "抖音",
+      "outOfControl": "有",
+      "improvement": "明天做别的事就不会玩手机了",
+      "meditationFeel": "没有",
+      "other": "不要被别人耗 不要有道德感 不要吃亏",
       "dietLog": "早：一个肉包 一个豆沙包  午餐：半碗米饭 毛豆 鸡肉 韭菜炒鸡蛋  加餐：冰淇淋  百香果柠檬绿茶\n晚：牛肉粉丝汤  吃了几口月饼 吃了一个梨",
       "dietCheat": "",
       "dietTreat": "小半碗冰淇淋",
@@ -387,16 +387,16 @@
       {
         "id": "mmv1pcnpphgi90",
         "text": "整理储藏间",
-        "done": false,
+        "done": true,
         "createdAt": 1791594909709,
-        "doneAt": null
+        "doneAt": 1791644176611
       },
       {
         "id": "mmv1pctznfmygk",
         "text": "洗澡",
-        "done": false,
+        "done": true,
         "createdAt": 1791594917843,
-        "doneAt": null
+        "doneAt": 1791644175609
       },
       {
         "id": "mmv1q73asjpaf1",
@@ -408,14 +408,14 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T14:54:59.825Z",
+  "exportedAt": "2026-10-10T14:56:21.965Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791644094821,
-      "mmv1pcnpphgi90": 1791594910060,
-      "mmv1pctznfmygk": 1791594918194,
+      "2026-10-10": 1791644173726,
+      "mmv1pcnpphgi90": 1791644176963,
+      "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791596329942
     },
     "deleted": {},
@@ -431,9 +431,9 @@
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791644094821,
-      "mmv1pcnpphgi90": 1791594910060,
-      "mmv1pctznfmygk": 1791594918194,
+      "2026-10-10": 1791644173726,
+      "mmv1pcnpphgi90": 1791644176963,
+      "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791596329942
     },
     "memoDeleted": {
