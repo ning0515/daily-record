@@ -385,17 +385,25 @@
         "done": false,
         "createdAt": 1791594909709,
         "doneAt": null
+      },
+      {
+        "id": "mmv1pctznfmygk",
+        "text": "洗澡",
+        "done": false,
+        "createdAt": 1791594917843,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T01:15:15.064Z",
+  "exportedAt": "2026-10-10T01:15:23.198Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
       "2026-10-10": 1791594892508,
-      "mmv1pcnpphgi90": 1791594910060
+      "mmv1pcnpphgi90": 1791594910060,
+      "mmv1pctznfmygk": 1791594918194
     },
     "deleted": {},
     "weekTimes": {
@@ -411,7 +419,8 @@
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
       "2026-10-10": 1791594892508,
-      "mmv1pcnpphgi90": 1791594910060
+      "mmv1pcnpphgi90": 1791594910060,
+      "mmv1pctznfmygk": 1791594918194
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
