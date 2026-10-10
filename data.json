@@ -234,11 +234,11 @@
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
-      "weather": "",
-      "keyword": "",
+      "weather": "晴",
+      "keyword": "拖延",
       "hygieneImprove": "",
       "weekPlan": "",
-      "weekProgress": "",
+      "weekProgress": "化妆课练习",
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
@@ -258,7 +258,7 @@
       "dietTreat": "小半碗冰淇淋",
       "dietDone": false,
       "dayFocusDone": false,
-      "weekFocusAdvanced": false,
+      "weekFocusAdvanced": true,
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": false,
@@ -405,12 +405,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T07:32:28.054Z",
+  "exportedAt": "2026-10-10T07:33:07.213Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791617543052,
+      "2026-10-10": 1791617582211,
       "mmv1pcnpphgi90": 1791594910060,
       "mmv1pctznfmygk": 1791594918194,
       "mmv1q73asjpaf1": 1791596329942
@@ -428,7 +428,7 @@
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791617543052,
+      "2026-10-10": 1791617582211,
       "mmv1pcnpphgi90": 1791594910060,
       "mmv1pctznfmygk": 1791594918194,
       "mmv1q73asjpaf1": 1791596329942
