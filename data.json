@@ -253,7 +253,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "早：一个肉包 一个豆沙包",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -382,12 +382,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T01:14:39.095Z",
+  "exportedAt": "2026-10-10T01:14:57.510Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791594872748
+      "2026-10-10": 1791594892508
     },
     "deleted": {},
     "weekTimes": {
@@ -402,7 +402,7 @@
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791594872748
+      "2026-10-10": 1791594892508
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
