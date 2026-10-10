@@ -262,7 +262,7 @@
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": false,
-      "hygieneGrade": "",
+      "hygieneGrade": "良",
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
@@ -405,12 +405,12 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-10T07:33:07.213Z",
+  "exportedAt": "2026-10-10T07:33:15.287Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791617582211,
+      "2026-10-10": 1791617590285,
       "mmv1pcnpphgi90": 1791594910060,
       "mmv1pctznfmygk": 1791594918194,
       "mmv1q73asjpaf1": 1791596329942
@@ -428,7 +428,7 @@
     "memoTimes": {
       "mmuzokqr42kuv1": 1791472683231,
       "2026-10-09": 1791557752652,
-      "2026-10-10": 1791617582211,
+      "2026-10-10": 1791617590285,
       "mmv1pcnpphgi90": 1791594910060,
       "mmv1pctznfmygk": 1791594918194,
       "mmv1q73asjpaf1": 1791596329942
