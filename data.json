@@ -324,7 +324,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "早餐 少量方便面 午餐 土豆排骨 西红柿炒鸡蛋 米饭 晚餐 两个羊肉烧麦 四个羊肉串 一小碗拌面 半个馕 一个烤包子 三个橘子 半斤冬枣",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -474,14 +474,14 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-11T01:29:20.386Z",
+  "exportedAt": "2026-10-11T14:56:04.053Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791596329942,
-      "2026-10-11": 1791682155382
+      "2026-10-11": 1791730554918
     },
     "deleted": {},
     "weekTimes": {
@@ -498,7 +498,7 @@
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791596329942,
-      "2026-10-11": 1791682155382
+      "2026-10-11": 1791730554918
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
