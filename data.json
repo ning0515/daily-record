@@ -340,7 +340,7 @@
         "env": false,
         "afterMeal": false,
         "chores": false,
-        "clothes": false,
+        "clothes": true,
         "putBack": false,
         "personal": false
       },
@@ -474,14 +474,14 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-11T01:29:12.842Z",
+  "exportedAt": "2026-10-11T01:29:20.386Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791596329942,
-      "2026-10-11": 1791682146868
+      "2026-10-11": 1791682155382
     },
     "deleted": {},
     "weekTimes": {
@@ -498,7 +498,7 @@
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791596329942,
-      "2026-10-11": 1791682146868
+      "2026-10-11": 1791682155382
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
