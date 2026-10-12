@@ -543,11 +543,18 @@
         "done": true,
         "createdAt": 1791769893190,
         "doneAt": 1791787227343
+      },
+      {
+        "id": "mmv4vv0ary5tjk",
+        "text": "按照视频练习化妆2",
+        "done": false,
+        "createdAt": 1791787242051,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-12T06:40:32.696Z",
+  "exportedAt": "2026-10-12T06:40:47.404Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -555,7 +562,8 @@
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
       "2026-10-12": 1791787219469,
-      "mmv4lj5tyvnxib": 1791787227694
+      "mmv4lj5tyvnxib": 1791787227694,
+      "mmv4vv0ary5tjk": 1791787242402
     },
     "deleted": {},
     "weekTimes": {
@@ -573,7 +581,8 @@
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
       "2026-10-12": 1791787219469,
-      "mmv4lj5tyvnxib": 1791787227694
+      "mmv4lj5tyvnxib": 1791787227694,
+      "mmv4vv0ary5tjk": 1791787242402
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
