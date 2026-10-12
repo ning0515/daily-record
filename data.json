@@ -557,11 +557,18 @@
         "done": true,
         "createdAt": 1791790271192,
         "doneAt": 1791790272093
+      },
+      {
+        "id": "mmv4zwjnqyfqhq",
+        "text": "给鱼缸换水",
+        "done": false,
+        "createdAt": 1791794032262,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-12T07:31:17.449Z",
+  "exportedAt": "2026-10-12T08:33:57.624Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -571,7 +578,8 @@
       "2026-10-12": 1791790249616,
       "mmv4lj5tyvnxib": 1791787227694,
       "mmv4vv0ary5tjk": 1791787242402,
-      "mmv4xnxlkf1a2i": 1791790272445
+      "mmv4xnxlkf1a2i": 1791790272445,
+      "mmv4zwjnqyfqhq": 1791794032617
     },
     "deleted": {},
     "weekTimes": {
@@ -591,7 +599,8 @@
       "2026-10-12": 1791790249616,
       "mmv4lj5tyvnxib": 1791787227694,
       "mmv4vv0ary5tjk": 1791787242402,
-      "mmv4xnxlkf1a2i": 1791790272445
+      "mmv4xnxlkf1a2i": 1791790272445,
+      "mmv4zwjnqyfqhq": 1791794032617
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
