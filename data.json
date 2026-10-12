@@ -373,7 +373,7 @@
       "focus": null,
       "weather": "晴",
       "keyword": "有规划",
-      "hygieneImprove": "",
+      "hygieneImprove": "衣服弄脏了",
       "weekPlan": "",
       "weekProgress": "",
       "todayMostImportant": "",
@@ -399,16 +399,16 @@
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": false,
-      "hygieneGrade": "",
+      "hygieneGrade": "待改进",
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
         "env": true,
         "afterMeal": true,
-        "chores": false,
+        "chores": true,
         "clothes": false,
         "putBack": false,
-        "personal": false
+        "personal": true
       },
       "mealLeave": {
         "breakfast": true,
@@ -575,14 +575,14 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-12T10:41:02.019Z",
+  "exportedAt": "2026-10-12T15:54:00.087Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
-      "2026-10-12": 1791801653769,
+      "2026-10-12": 1791820435082,
       "mmv4lj5tyvnxib": 1791787227694,
       "mmv4vv0ary5tjk": 1791787242402,
       "mmv4xnxlkf1a2i": 1791790272445,
@@ -604,7 +604,7 @@
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
-      "2026-10-12": 1791801653769,
+      "2026-10-12": 1791820435082,
       "mmv4lj5tyvnxib": 1791787227694,
       "mmv4vv0ary5tjk": 1791787242402,
       "mmv4xnxlkf1a2i": 1791790272445,
