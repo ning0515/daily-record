@@ -361,7 +361,7 @@
       "exercise": null,
       "water": null,
       "sleep": null,
-      "meals": null,
+      "meals": 2,
       "vanity": null,
       "anxiety": null,
       "depression": null,
@@ -390,7 +390,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "早：一杯咖啡 午：自制恰巴塔三明治 加餐：一个橘子 一颗枣",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -403,16 +403,16 @@
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
-        "env": false,
-        "afterMeal": false,
+        "env": true,
+        "afterMeal": true,
         "chores": false,
         "clothes": false,
         "putBack": false,
         "personal": false
       },
       "mealLeave": {
-        "breakfast": false,
-        "lunch": false,
+        "breakfast": true,
+        "lunch": true,
         "dinner": false,
         "snack": false
       },
@@ -547,14 +547,14 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-12T01:51:53.708Z",
+  "exportedAt": "2026-10-12T06:40:24.474Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
-      "2026-10-12": 1791769908705,
+      "2026-10-12": 1791787219469,
       "mmv4lj5tyvnxib": 1791769893540
     },
     "deleted": {},
@@ -572,7 +572,7 @@
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
-      "2026-10-12": 1791769908705,
+      "2026-10-12": 1791787219469,
       "mmv4lj5tyvnxib": 1791769893540
     },
     "memoDeleted": {
