@@ -301,8 +301,8 @@
       "depression": 2,
       "phoneScreen": 7,
       "phoneGoal": 5,
-      "pickups": null,
-      "phoneBeforeBed": null,
+      "pickups": 97,
+      "phoneBeforeBed": 15,
       "meditation": 0,
       "focus": null,
       "weather": "晴",
@@ -467,21 +467,20 @@
       {
         "id": "mmv1q73asjpaf1",
         "text": "扫描身份证和户口本",
-        "done": false,
+        "done": true,
         "createdAt": 1791596329588,
-        "doneAt": null
+        "doneAt": 1791730778795
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-11T14:59:28.646Z",
+  "exportedAt": "2026-10-12T01:50:40.231Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
-      "mmv1q73asjpaf1": 1791596329942,
-      "2026-10-11": 1791730763269
+      "mmv1q73asjpaf1": 1791730779146
     },
     "deleted": {},
     "weekTimes": {
@@ -497,8 +496,7 @@
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
-      "mmv1q73asjpaf1": 1791596329942,
-      "2026-10-11": 1791730763269
+      "mmv1q73asjpaf1": 1791730779146
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
