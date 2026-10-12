@@ -366,13 +366,13 @@
       "anxiety": null,
       "depression": null,
       "phoneScreen": null,
-      "phoneGoal": null,
+      "phoneGoal": 5,
       "pickups": null,
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
-      "weather": "",
-      "keyword": "",
+      "weather": "晴",
+      "keyword": "有规划",
       "hygieneImprove": "",
       "weekPlan": "",
       "weekProgress": "",
@@ -536,18 +536,26 @@
         "done": true,
         "createdAt": 1791596329588,
         "doneAt": 1791730778795
+      },
+      {
+        "id": "mmv4lj5tyvnxib",
+        "text": "按照视频练习化妆",
+        "done": false,
+        "createdAt": 1791769893190,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-12T01:51:27.246Z",
+  "exportedAt": "2026-10-12T01:51:53.708Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
-      "2026-10-12": 1791769865285
+      "2026-10-12": 1791769908705,
+      "mmv4lj5tyvnxib": 1791769893540
     },
     "deleted": {},
     "weekTimes": {
@@ -564,7 +572,8 @@
       "mmv1pcnpphgi90": 1791644176963,
       "mmv1pctznfmygk": 1791644175959,
       "mmv1q73asjpaf1": 1791730779146,
-      "2026-10-12": 1791769865285
+      "2026-10-12": 1791769908705,
+      "mmv4lj5tyvnxib": 1791769893540
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
