@@ -455,9 +455,9 @@
       "tomorrowAdjust": "焦虑无用 ",
       "phoneUse": "抖音",
       "outOfControl": "是",
-      "improvement": "",
-      "meditationFeel": "",
-      "other": "",
+      "improvement": "尝试明天不看抖音",
+      "meditationFeel": "没有",
+      "other": "情绪还是不够稳定，应该不管其他的事情，只以我为中心",
       "dietLog": "早：两个豆腐粉丝包子 一个鸡蛋 半碗米粥\n午：米饭和菜 晚餐：东坡肉拌饭 辣条 栗子 泸溪河 香蕉 ",
       "dietCheat": "辣条 橘子",
       "dietTreat": "",
@@ -648,7 +648,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-13T14:46:39.988Z",
+  "exportedAt": "2026-10-13T14:47:24.120Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -660,7 +660,7 @@
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
-      "2026-10-13": 1791902794364
+      "2026-10-13": 1791902839116
     },
     "deleted": {},
     "weekTimes": {
@@ -682,7 +682,7 @@
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
-      "2026-10-13": 1791902794364
+      "2026-10-13": 1791902839116
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
