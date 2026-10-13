@@ -431,52 +431,52 @@
       "sleep": 8,
       "meals": 3,
       "vanity": null,
-      "anxiety": null,
+      "anxiety": 7,
       "depression": null,
-      "phoneScreen": null,
-      "phoneGoal": null,
+      "phoneScreen": 8,
+      "phoneGoal": 5,
       "pickups": null,
-      "phoneBeforeBed": null,
-      "meditation": null,
+      "phoneBeforeBed": 0,
+      "meditation": 0,
       "focus": null,
       "weather": "晴",
       "keyword": "",
-      "hygieneImprove": "",
+      "hygieneImprove": "沙发未清洁",
       "weekPlan": "",
-      "weekProgress": "",
+      "weekProgress": "坚持减肥",
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
-      "reasonNotDone": "",
-      "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
-      "phoneUse": "",
-      "outOfControl": "",
+      "reasonNotDone": "情绪失控",
+      "tomorrowPlan": "与任务无关的事情与我无关",
+      "mainEmotion": "焦虑",
+      "trigger": "配偶工作危机讨论",
+      "coping": "吃额外的食物",
+      "tomorrowAdjust": "焦虑无用 ",
+      "phoneUse": "抖音",
+      "outOfControl": "是",
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "早：两个豆腐粉丝包子 一个鸡蛋 半碗米粥\n午：",
-      "dietCheat": "",
+      "dietLog": "早：两个豆腐粉丝包子 一个鸡蛋 半碗米粥\n午：米饭和菜 晚餐：东坡肉拌饭 辣条 栗子 泸溪河 香蕉 ",
+      "dietCheat": "辣条 橘子",
       "dietTreat": "",
       "dietDone": false,
       "dayFocusDone": false,
-      "weekFocusAdvanced": false,
+      "weekFocusAdvanced": true,
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": false,
-      "hygieneGrade": "",
-      "moodStable": "",
+      "hygieneGrade": "良",
+      "moodStable": "波动",
       "phoneOk": "",
       "hygiene": {
         "env": false,
-        "afterMeal": false,
-        "chores": false,
-        "clothes": false,
-        "putBack": false,
-        "personal": false
+        "afterMeal": true,
+        "chores": true,
+        "clothes": true,
+        "putBack": true,
+        "personal": true
       },
       "mealLeave": {
         "breakfast": false,
@@ -484,7 +484,9 @@
         "dinner": false,
         "snack": false
       },
-      "emotions": [],
+      "emotions": [
+        "焦虑"
+      ],
       "todo": null,
       "goals": [],
       "quad": null,
@@ -639,14 +641,14 @@
       {
         "id": "mmv4zwtj74zcub",
         "text": "写小说500字2",
-        "done": false,
+        "done": true,
         "createdAt": 1791794045059,
-        "doneAt": null
+        "doneAt": 1791902675765
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-13T14:43:37.455Z",
+  "exportedAt": "2026-10-13T14:46:39.988Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -657,8 +659,8 @@
       "mmv4vv0ary5tjk": 1791787242402,
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
-      "mmv4zwtj74zcub": 1791794045410,
-      "2026-10-13": 1791902612094
+      "mmv4zwtj74zcub": 1791902676116,
+      "2026-10-13": 1791902794364
     },
     "deleted": {},
     "weekTimes": {
@@ -679,8 +681,8 @@
       "mmv4vv0ary5tjk": 1791787242402,
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
-      "mmv4zwtj74zcub": 1791794045410,
-      "2026-10-13": 1791902612094
+      "mmv4zwtj74zcub": 1791902676116,
+      "2026-10-13": 1791902794364
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
