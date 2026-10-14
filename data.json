@@ -537,16 +537,16 @@
       "weekFocusAdvanced": false,
       "meditationDone": false,
       "dietLeave": false,
-      "dietStopFull": false,
+      "dietStopFull": true,
       "hygieneGrade": "",
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
-        "env": false,
-        "afterMeal": false,
+        "env": true,
+        "afterMeal": true,
         "chores": false,
-        "clothes": false,
-        "putBack": false,
+        "clothes": true,
+        "putBack": true,
         "personal": false
       },
       "mealLeave": {
@@ -714,7 +714,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-14T06:23:27.849Z",
+  "exportedAt": "2026-10-14T06:23:55.084Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -726,7 +726,7 @@
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
-      "2026-10-14": 1791959002846
+      "2026-10-14": 1791959030081
     },
     "deleted": {},
     "weekTimes": {
@@ -748,7 +748,7 @@
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
-      "2026-10-14": 1791959002846
+      "2026-10-14": 1791959030081
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
