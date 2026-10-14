@@ -529,10 +529,10 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "早 一根香蕉 午 辣皮子拌面 晚餐 半个恰巴塔 加餐 两个橘子一个猕猴桃",
       "dietCheat": "",
       "dietTreat": "",
-      "dietDone": false,
+      "dietDone": true,
       "dayFocusDone": false,
       "weekFocusAdvanced": false,
       "meditationDone": false,
@@ -728,7 +728,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-14T07:17:31.043Z",
+  "exportedAt": "2026-10-14T15:28:39.620Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -740,7 +740,7 @@
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
-      "2026-10-14": 1791959030081,
+      "2026-10-14": 1791991714612,
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040
     },
@@ -764,7 +764,7 @@
       "mmv4xnxlkf1a2i": 1791790272445,
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
-      "2026-10-14": 1791959030081,
+      "2026-10-14": 1791991714612,
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040
     },
