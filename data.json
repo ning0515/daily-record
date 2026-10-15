@@ -559,6 +559,72 @@
       "todo": null,
       "goals": [],
       "quad": null
+    },
+    "2026-10-15": {
+      "date": "2026-10-15",
+      "weight": 83.5,
+      "exercise": null,
+      "water": null,
+      "sleep": null,
+      "meals": null,
+      "vanity": null,
+      "anxiety": null,
+      "depression": null,
+      "phoneScreen": null,
+      "phoneGoal": null,
+      "pickups": null,
+      "phoneBeforeBed": null,
+      "meditation": null,
+      "focus": null,
+      "weather": "",
+      "keyword": "",
+      "hygieneImprove": "",
+      "weekPlan": "",
+      "weekProgress": "",
+      "todayMostImportant": "",
+      "priority": "",
+      "todo3": "",
+      "reasonNotDone": "",
+      "tomorrowPlan": "",
+      "mainEmotion": "",
+      "trigger": "",
+      "coping": "",
+      "tomorrowAdjust": "",
+      "phoneUse": "",
+      "outOfControl": "",
+      "improvement": "",
+      "meditationFeel": "",
+      "other": "",
+      "dietLog": "",
+      "dietCheat": "",
+      "dietTreat": "",
+      "dietDone": false,
+      "dayFocusDone": false,
+      "weekFocusAdvanced": false,
+      "meditationDone": false,
+      "dietLeave": false,
+      "dietStopFull": false,
+      "hygieneGrade": "",
+      "moodStable": "",
+      "phoneOk": "",
+      "hygiene": {
+        "env": false,
+        "afterMeal": false,
+        "chores": false,
+        "clothes": false,
+        "putBack": false,
+        "personal": false
+      },
+      "mealLeave": {
+        "breakfast": true,
+        "lunch": true,
+        "dinner": false,
+        "snack": false
+      },
+      "emotions": [],
+      "todo": null,
+      "goals": [],
+      "quad": null
     }
   },
   "weeks": {
@@ -735,7 +801,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-15T07:33:34.350Z",
+  "exportedAt": "2026-10-15T07:33:49.498Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -749,7 +815,8 @@
       "mmv4zwtj74zcub": 1791902676116,
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
-      "mmv89m779ggn5z": 1791991744596
+      "mmv89m779ggn5z": 1791991744596,
+      "2026-10-15": 1792049624494
     },
     "deleted": {},
     "weekTimes": {
@@ -773,7 +840,8 @@
       "mmv4zwtj74zcub": 1791902676116,
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
-      "mmv89m779ggn5z": 1791991744596
+      "mmv89m779ggn5z": 1791991744596,
+      "2026-10-15": 1792049624494
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
