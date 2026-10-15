@@ -794,14 +794,14 @@
       {
         "id": "mmv89m779ggn5z",
         "text": "写500字小说4",
-        "done": false,
+        "done": true,
         "createdAt": 1791991744245,
-        "doneAt": null
+        "doneAt": 1792064683217
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-15T11:34:59.727Z",
+  "exportedAt": "2026-10-15T11:44:48.580Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -815,7 +815,7 @@
       "mmv4zwtj74zcub": 1791902676116,
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
-      "mmv89m779ggn5z": 1791991744596,
+      "mmv89m779ggn5z": 1792064683572,
       "2026-10-15": 1792064090116
     },
     "deleted": {},
@@ -840,7 +840,7 @@
       "mmv4zwtj74zcub": 1791902676116,
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
-      "mmv89m779ggn5z": 1791991744596,
+      "mmv89m779ggn5z": 1792064683572,
       "2026-10-15": 1792064090116
     },
     "memoDeleted": {
