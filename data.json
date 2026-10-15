@@ -595,7 +595,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "早：一个肉包 一个豆腐粉丝煲 两个鸡蛋 半碗米饭  午：菜饭 加餐：两个百香果 一个抹茶牛乳茶",
+      "dietLog": "早：一个肉包 一个豆腐粉丝煲 两个鸡蛋 半碗米饭  午：菜饭 加餐：两个百香果 一个抹茶牛乳茶 ",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -608,8 +608,8 @@
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
-        "env": false,
-        "afterMeal": false,
+        "env": true,
+        "afterMeal": true,
         "chores": false,
         "clothes": false,
         "putBack": false,
@@ -801,7 +801,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-15T07:34:40.871Z",
+  "exportedAt": "2026-10-15T07:36:39.744Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -816,7 +816,7 @@
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1791991744596,
-      "2026-10-15": 1792049675868
+      "2026-10-15": 1792049794741
     },
     "deleted": {},
     "weekTimes": {
@@ -841,7 +841,7 @@
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1791991744596,
-      "2026-10-15": 1792049675868
+      "2026-10-15": 1792049794741
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
