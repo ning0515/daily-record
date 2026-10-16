@@ -663,7 +663,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "早：一个香蕉 ",
+      "dietLog": "早：一个香蕉  午：菜饭 晚饭：牛肉粉丝汤 加餐 一个猕猴桃 两个百香果",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -876,7 +876,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-16T03:56:54.974Z",
+  "exportedAt": "2026-10-16T10:27:40.406Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -892,7 +892,7 @@
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792122398165
+      "2026-10-16": 1792146455397
     },
     "deleted": {},
     "weekTimes": {
@@ -918,7 +918,7 @@
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792122398165
+      "2026-10-16": 1792146455397
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
