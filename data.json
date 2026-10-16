@@ -644,7 +644,7 @@
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
-      "weather": "",
+      "weather": "阴转晴",
       "keyword": "",
       "hygieneImprove": "没有洗衣服",
       "weekPlan": "",
@@ -879,7 +879,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-16T15:34:17.744Z",
+  "exportedAt": "2026-10-16T15:34:26.116Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -895,7 +895,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164852741
+      "2026-10-16": 1792164861112
     },
     "deleted": {},
     "weekTimes": {
@@ -921,7 +921,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164852741
+      "2026-10-16": 1792164861112
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
