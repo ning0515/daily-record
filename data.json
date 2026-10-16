@@ -633,7 +633,7 @@
       "weight": 83.4,
       "exercise": 0,
       "water": 1000,
-      "sleep": null,
+      "sleep": 9,
       "meals": null,
       "vanity": null,
       "anxiety": null,
@@ -879,7 +879,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-16T15:33:21.483Z",
+  "exportedAt": "2026-10-16T15:33:27.102Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -895,7 +895,7 @@
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164795294
+      "2026-10-16": 1792164801661
     },
     "deleted": {},
     "weekTimes": {
@@ -921,7 +921,7 @@
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164795294
+      "2026-10-16": 1792164801661
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
