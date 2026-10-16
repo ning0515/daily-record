@@ -641,8 +641,8 @@
       "phoneScreen": null,
       "phoneGoal": null,
       "pickups": null,
-      "phoneBeforeBed": null,
-      "meditation": null,
+      "phoneBeforeBed": 15,
+      "meditation": 0,
       "focus": null,
       "weather": "阴转晴",
       "keyword": "",
@@ -879,7 +879,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-16T15:35:27.502Z",
+  "exportedAt": "2026-10-16T15:37:42.470Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -895,7 +895,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164922499
+      "2026-10-16": 1792165056897
     },
     "deleted": {},
     "weekTimes": {
@@ -921,7 +921,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164922499
+      "2026-10-16": 1792165056897
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
