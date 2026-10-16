@@ -646,7 +646,7 @@
       "focus": null,
       "weather": "",
       "keyword": "",
-      "hygieneImprove": "",
+      "hygieneImprove": "没有洗衣服",
       "weekPlan": "",
       "weekProgress": "",
       "todayMostImportant": "",
@@ -672,16 +672,16 @@
       "meditationDone": false,
       "dietLeave": true,
       "dietStopFull": false,
-      "hygieneGrade": "",
+      "hygieneGrade": "良",
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
-        "env": false,
-        "afterMeal": false,
-        "chores": false,
+        "env": true,
+        "afterMeal": true,
+        "chores": true,
         "clothes": false,
-        "putBack": false,
-        "personal": false
+        "putBack": true,
+        "personal": true
       },
       "mealLeave": {
         "breakfast": true,
@@ -858,9 +858,9 @@
       {
         "id": "mmv7s1xywbitgq",
         "text": "按照视频练习化妆3",
-        "done": false,
+        "done": true,
         "createdAt": 1791962245688,
-        "doneAt": null
+        "doneAt": 1792164845736
       },
       {
         "id": "mmv89m779ggn5z",
@@ -879,7 +879,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-16T15:33:45.628Z",
+  "exportedAt": "2026-10-16T15:34:11.091Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -892,10 +892,10 @@
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
       "mmv7q5hekfev5d": 1791962231106,
-      "mmv7s1xywbitgq": 1791962246040,
+      "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164820624
+      "2026-10-16": 1792164839442
     },
     "deleted": {},
     "weekTimes": {
@@ -918,10 +918,10 @@
       "mmv4zwjnqyfqhq": 1791858529808,
       "mmv4zwtj74zcub": 1791902676116,
       "mmv7q5hekfev5d": 1791962231106,
-      "mmv7s1xywbitgq": 1791962246040,
+      "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792164820624
+      "2026-10-16": 1792164839442
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
