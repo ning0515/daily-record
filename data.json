@@ -692,7 +692,10 @@
       "emotions": [],
       "todo": null,
       "goals": [],
-      "quad": null
+      "quad": null,
+      "weekGoals": "",
+      "weekP0Done": 0,
+      "weekP1Done": 0
     }
   },
   "weeks": {
@@ -876,7 +879,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-16T10:37:30.231Z",
+  "exportedAt": "2026-10-16T15:32:55.200Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -891,8 +894,7 @@
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1792064683572,
-      "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792146455397
+      "mmv9h1qyq0ew4o": 1792064693537
     },
     "deleted": {},
     "weekTimes": {
@@ -917,8 +919,7 @@
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1791962246040,
       "mmv89m779ggn5z": 1792064683572,
-      "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-16": 1792146455397
+      "mmv9h1qyq0ew4o": 1792064693537
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
