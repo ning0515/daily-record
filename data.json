@@ -773,36 +773,36 @@
       "water": 1000,
       "sleep": 8,
       "meals": null,
-      "vanity": null,
-      "anxiety": null,
-      "depression": null,
-      "phoneScreen": null,
-      "phoneGoal": null,
+      "vanity": 10,
+      "anxiety": 6,
+      "depression": 5,
+      "phoneScreen": 10,
+      "phoneGoal": 7,
       "pickups": null,
-      "phoneBeforeBed": null,
-      "meditation": null,
+      "phoneBeforeBed": 20,
+      "meditation": 0,
       "focus": null,
-      "weather": "",
-      "keyword": "",
-      "hygieneImprove": "",
+      "weather": "晴",
+      "keyword": "悲伤",
+      "hygieneImprove": "好多 太颓废了",
       "weekPlan": "",
       "weekProgress": "",
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
-      "reasonNotDone": "",
-      "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
+      "reasonNotDone": "因为心情不好",
+      "tomorrowPlan": "去他妈的",
+      "mainEmotion": "恶心",
+      "trigger": "恨父母",
+      "coping": "恨恨恨",
+      "tomorrowAdjust": "恨狠狠",
       "phoneUse": "",
       "outOfControl": "",
       "improvement": "",
       "meditationFeel": "",
-      "other": "",
+      "other": "太恨了 太恨了 ",
       "dietLog": "",
-      "dietCheat": "",
+      "dietCheat": "奶茶",
       "dietTreat": "",
       "dietDone": false,
       "dayFocusDone": false,
@@ -810,16 +810,16 @@
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": false,
-      "hygieneGrade": "",
+      "hygieneGrade": "待改进",
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
         "env": false,
-        "afterMeal": false,
-        "chores": false,
+        "afterMeal": true,
+        "chores": true,
         "clothes": false,
         "putBack": false,
-        "personal": false
+        "personal": true
       },
       "mealLeave": {
         "breakfast": true,
@@ -827,7 +827,10 @@
         "dinner": true,
         "snack": true
       },
-      "emotions": [],
+      "emotions": [
+        "虚荣心",
+        "抑郁"
+      ],
       "todo": null,
       "goals": [],
       "quad": null
@@ -1014,7 +1017,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-18T15:54:51.687Z",
+  "exportedAt": "2026-10-18T15:56:22.066Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1030,7 +1033,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-18": 1792338886677
+      "2026-10-18": 1792338977060
     },
     "deleted": {},
     "weekTimes": {
@@ -1056,7 +1059,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-18": 1792338886677
+      "2026-10-18": 1792338977060
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
