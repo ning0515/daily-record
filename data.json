@@ -796,10 +796,10 @@
       "trigger": "恨父母",
       "coping": "恨恨恨",
       "tomorrowAdjust": "恨狠狠",
-      "phoneUse": "",
-      "outOfControl": "",
-      "improvement": "",
-      "meditationFeel": "",
+      "phoneUse": "抖音",
+      "outOfControl": "有",
+      "improvement": "明天干自己的事情吧",
+      "meditationFeel": "没有",
       "other": "太恨了 太恨了 ",
       "dietLog": "",
       "dietCheat": "奶茶",
@@ -1017,7 +1017,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-18T15:56:22.066Z",
+  "exportedAt": "2026-10-20T03:42:27.069Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1032,8 +1032,7 @@
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
-      "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-18": 1792338977060
+      "mmv9h1qyq0ew4o": 1792064693537
     },
     "deleted": {},
     "weekTimes": {
@@ -1058,8 +1057,7 @@
       "mmv7q5hekfev5d": 1791962231106,
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
-      "mmv9h1qyq0ew4o": 1792064693537,
-      "2026-10-18": 1792338977060
+      "mmv9h1qyq0ew4o": 1792064693537
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
