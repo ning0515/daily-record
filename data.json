@@ -845,8 +845,8 @@
       "vanity": 1,
       "anxiety": 1,
       "depression": 1,
-      "phoneScreen": null,
-      "phoneGoal": null,
+      "phoneScreen": 84,
+      "phoneGoal": 5,
       "pickups": null,
       "phoneBeforeBed": null,
       "meditation": null,
@@ -1099,7 +1099,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-20T14:34:47.155Z",
+  "exportedAt": "2026-10-20T14:35:06.311Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1116,7 +1116,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792467771246,
-      "2026-10-20": 1792506880800
+      "2026-10-20": 1792506900876
     },
     "deleted": {},
     "weekTimes": {
@@ -1145,7 +1145,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792467771246,
-      "2026-10-20": 1792506880800
+      "2026-10-20": 1792506900876
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
