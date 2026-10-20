@@ -861,10 +861,10 @@
       "todo3": "",
       "reasonNotDone": "懒散",
       "tomorrowPlan": "看情况吧1情绪不太好",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
+      "mainEmotion": "想吃生蚝",
+      "trigger": "美食视频",
+      "coping": "吃了",
+      "tomorrowAdjust": "少吃",
       "phoneUse": "",
       "outOfControl": "",
       "improvement": "",
@@ -1099,7 +1099,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-20T14:34:20.830Z",
+  "exportedAt": "2026-10-20T14:34:47.155Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1116,7 +1116,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792467771246,
-      "2026-10-20": 1792506855824
+      "2026-10-20": 1792506880800
     },
     "deleted": {},
     "weekTimes": {
@@ -1145,7 +1145,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792467771246,
-      "2026-10-20": 1792506855824
+      "2026-10-20": 1792506880800
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
