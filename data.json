@@ -912,52 +912,52 @@
       "sleep": 9,
       "meals": 4,
       "vanity": null,
-      "anxiety": null,
-      "depression": null,
+      "anxiety": 3,
+      "depression": 4,
       "phoneScreen": null,
       "phoneGoal": null,
       "pickups": null,
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
-      "weather": "",
-      "keyword": "",
-      "hygieneImprove": "",
+      "weather": "雨",
+      "keyword": "心情不好",
+      "hygieneImprove": "懒散 肚子疼",
       "weekPlan": "",
-      "weekProgress": "",
+      "weekProgress": "减肥",
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
-      "reasonNotDone": "",
-      "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
+      "reasonNotDone": "懒散",
+      "tomorrowPlan": "什么也不管",
+      "mainEmotion": "抑郁",
+      "trigger": "家庭",
+      "coping": "无奈 ",
+      "tomorrowAdjust": "我目前无法解决这个问题",
       "phoneUse": "",
       "outOfControl": "",
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "吃多了",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
       "dayFocusDone": false,
-      "weekFocusAdvanced": false,
+      "weekFocusAdvanced": true,
       "meditationDone": false,
       "dietLeave": false,
       "dietStopFull": false,
-      "hygieneGrade": "",
-      "moodStable": "",
+      "hygieneGrade": "待改进",
+      "moodStable": "波动",
       "phoneOk": "",
       "hygiene": {
-        "env": false,
-        "afterMeal": false,
+        "env": true,
+        "afterMeal": true,
         "chores": false,
-        "clothes": false,
-        "putBack": false,
-        "personal": false
+        "clothes": true,
+        "putBack": true,
+        "personal": true
       },
       "mealLeave": {
         "breakfast": true,
@@ -965,7 +965,9 @@
         "dinner": true,
         "snack": true
       },
-      "emotions": [],
+      "emotions": [
+        "抑郁"
+      ],
       "todo": null,
       "goals": [],
       "quad": null
@@ -1165,7 +1167,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-21T15:18:58.067Z",
+  "exportedAt": "2026-10-21T15:20:07.482Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1182,7 +1184,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
-      "2026-10-21": 1792595933064
+      "2026-10-21": 1792596002478
     },
     "deleted": {},
     "weekTimes": {
@@ -1211,7 +1213,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
-      "2026-10-21": 1792595933064
+      "2026-10-21": 1792596002478
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
