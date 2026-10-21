@@ -847,10 +847,10 @@
       "depression": 1,
       "phoneScreen": 84,
       "phoneGoal": 5,
-      "pickups": null,
-      "phoneBeforeBed": null,
-      "meditation": null,
-      "focus": null,
+      "pickups": 91,
+      "phoneBeforeBed": 20,
+      "meditation": 0,
+      "focus": 1,
       "weather": "雨",
       "keyword": "偷懒",
       "hygieneImprove": "明天需要大扫除",
@@ -865,23 +865,23 @@
       "trigger": "美食视频",
       "coping": "吃了",
       "tomorrowAdjust": "少吃",
-      "phoneUse": "",
-      "outOfControl": "",
-      "improvement": "",
-      "meditationFeel": "",
-      "other": "",
+      "phoneUse": "知乎",
+      "outOfControl": "不算",
+      "improvement": "明天用电脑看",
+      "meditationFeel": "没有",
+      "other": "记住最重要的事情是减肥",
       "dietLog": "午饭 烩饭 羊棒骨 晚 蘸酱菜 加餐 冬枣",
       "dietCheat": "饮料",
       "dietTreat": "",
       "dietDone": true,
       "dayFocusDone": false,
       "weekFocusAdvanced": true,
-      "meditationDone": false,
+      "meditationDone": true,
       "dietLeave": false,
       "dietStopFull": true,
       "hygieneGrade": "待改进",
       "moodStable": "稳定",
-      "phoneOk": "",
+      "phoneOk": "未达标",
       "hygiene": {
         "env": true,
         "afterMeal": false,
@@ -1099,7 +1099,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-20T14:35:06.311Z",
+  "exportedAt": "2026-10-21T11:09:46.408Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1115,8 +1115,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
-      "mmvg513psl8w19": 1792467771246,
-      "2026-10-20": 1792506900876
+      "mmvg513psl8w19": 1792467771246
     },
     "deleted": {},
     "weekTimes": {
@@ -1144,8 +1143,7 @@
       "mmv7s1xywbitgq": 1792164846088,
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
-      "mmvg513psl8w19": 1792467771246,
-      "2026-10-20": 1792506900876
+      "mmvg513psl8w19": 1792467771246
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
