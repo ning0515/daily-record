@@ -1002,9 +1002,9 @@
       "trigger": "夏和我吵架",
       "coping": "先自己冷静再哄",
       "tomorrowAdjust": "不知道 ",
-      "phoneUse": "",
-      "outOfControl": "",
-      "improvement": "",
+      "phoneUse": "刷抖音",
+      "outOfControl": "有",
+      "improvement": "尽量不看",
       "meditationFeel": "",
       "other": "",
       "dietLog": "午餐：土豆炖排骨 米饭 晚饭：一个韭菜盒子 一根黄瓜 一个桃",
@@ -1018,7 +1018,7 @@
       "dietStopFull": true,
       "hygieneGrade": "优",
       "moodStable": "波动",
-      "phoneOk": "",
+      "phoneOk": "未达标",
       "hygiene": {
         "env": true,
         "afterMeal": true,
@@ -1240,7 +1240,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-24T09:10:31.398Z",
+  "exportedAt": "2026-10-24T09:11:00.295Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1258,7 +1258,7 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-24": 1792833026394
+      "2026-10-24": 1792833055291
     },
     "deleted": {},
     "weekTimes": {
@@ -1288,7 +1288,7 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-24": 1792833026394
+      "2026-10-24": 1792833055291
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
