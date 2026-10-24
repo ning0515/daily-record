@@ -979,9 +979,9 @@
       "water": 1000,
       "sleep": 8,
       "meals": 2,
-      "vanity": null,
-      "anxiety": null,
-      "depression": null,
+      "vanity": 1,
+      "anxiety": 1,
+      "depression": 4,
       "phoneScreen": null,
       "phoneGoal": null,
       "pickups": null,
@@ -998,10 +998,10 @@
       "todo3": "",
       "reasonNotDone": "",
       "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
+      "mainEmotion": "无奈",
+      "trigger": "夏和我吵架",
+      "coping": "先自己冷静再哄",
+      "tomorrowAdjust": "不知道 ",
       "phoneUse": "",
       "outOfControl": "",
       "improvement": "",
@@ -1017,7 +1017,7 @@
       "dietLeave": true,
       "dietStopFull": true,
       "hygieneGrade": "优",
-      "moodStable": "",
+      "moodStable": "波动",
       "phoneOk": "",
       "hygiene": {
         "env": true,
@@ -1240,7 +1240,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-24T09:08:55.152Z",
+  "exportedAt": "2026-10-24T09:09:32.484Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1258,7 +1258,7 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792596076016,
-      "2026-10-24": 1792832930148
+      "2026-10-24": 1792832967479
     },
     "deleted": {},
     "weekTimes": {
@@ -1288,7 +1288,7 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792596076016,
-      "2026-10-24": 1792832930148
+      "2026-10-24": 1792832967479
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
