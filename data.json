@@ -982,9 +982,9 @@
       "vanity": 1,
       "anxiety": 1,
       "depression": 4,
-      "phoneScreen": 7,
-      "phoneGoal": 5,
-      "pickups": 86,
+      "phoneScreen": 9,
+      "phoneGoal": 7,
+      "pickups": 73,
       "phoneBeforeBed": 20,
       "meditation": null,
       "focus": null,
@@ -1005,8 +1005,8 @@
       "phoneUse": "刷抖音",
       "outOfControl": "有",
       "improvement": "尽量不看",
-      "meditationFeel": "",
-      "other": "",
+      "meditationFeel": "没有",
+      "other": "唉",
       "dietLog": "午餐：土豆炖排骨 米饭 晚饭：一个韭菜盒子 一根黄瓜 一个桃 神仙鸡 韭菜盒子 小米粥",
       "dietCheat": "",
       "dietTreat": "",
@@ -1240,7 +1240,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-24T15:24:22.411Z",
+  "exportedAt": "2026-10-25T14:22:22.425Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1257,8 +1257,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
-      "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-24": 1792855457405
+      "mmvi9f4b4bmv1a": 1792832974003
     },
     "deleted": {},
     "weekTimes": {
@@ -1287,8 +1286,7 @@
       "mmv89m779ggn5z": 1792064683572,
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
-      "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-24": 1792855457405
+      "mmvi9f4b4bmv1a": 1792832974003
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
