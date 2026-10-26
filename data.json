@@ -1108,10 +1108,10 @@
     },
     "2026-10-26": {
       "date": "2026-10-26",
-      "weight": null,
-      "exercise": null,
-      "water": null,
-      "sleep": null,
+      "weight": 84.5,
+      "exercise": 20,
+      "water": 1500,
+      "sleep": 7,
       "meals": 2,
       "vanity": null,
       "anxiety": null,
@@ -1141,25 +1141,25 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "早：没吃 午：青菜 牛肉 米饭 晚：恰巴塔  腌黄瓜",
       "dietCheat": "",
       "dietTreat": "",
-      "dietDone": false,
+      "dietDone": true,
       "dayFocusDone": false,
       "weekFocusAdvanced": false,
       "meditationDone": false,
-      "dietLeave": false,
-      "dietStopFull": false,
-      "hygieneGrade": "",
+      "dietLeave": true,
+      "dietStopFull": true,
+      "hygieneGrade": "优",
       "moodStable": "",
       "phoneOk": "",
       "hygiene": {
-        "env": false,
-        "afterMeal": false,
-        "chores": false,
-        "clothes": false,
-        "putBack": false,
-        "personal": false
+        "env": true,
+        "afterMeal": true,
+        "chores": true,
+        "clothes": true,
+        "putBack": true,
+        "personal": true
       },
       "mealLeave": {
         "breakfast": true,
@@ -1374,7 +1374,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-26T13:09:29.115Z",
+  "exportedAt": "2026-10-26T13:10:22.495Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1392,7 +1392,7 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-26": 1793020163552
+      "2026-10-26": 1793020217492
     },
     "deleted": {},
     "weekTimes": {
@@ -1422,7 +1422,7 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-26": 1793020163552
+      "2026-10-26": 1793020217492
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
