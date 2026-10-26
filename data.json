@@ -1113,29 +1113,29 @@
       "water": 1500,
       "sleep": 7,
       "meals": 2,
-      "vanity": null,
-      "anxiety": null,
-      "depression": null,
+      "vanity": 1,
+      "anxiety": 3,
+      "depression": 1,
       "phoneScreen": null,
       "phoneGoal": null,
       "pickups": null,
       "phoneBeforeBed": null,
       "meditation": null,
       "focus": null,
-      "weather": "",
-      "keyword": "",
+      "weather": "晴",
+      "keyword": "积极",
       "hygieneImprove": "时间应该更整块利用",
       "weekPlan": "",
-      "weekProgress": "",
+      "weekProgress": "减肥",
       "todayMostImportant": "",
       "priority": "",
       "todo3": "",
-      "reasonNotDone": "",
-      "tomorrowPlan": "",
-      "mainEmotion": "",
-      "trigger": "",
-      "coping": "",
-      "tomorrowAdjust": "",
+      "reasonNotDone": "已完成",
+      "tomorrowPlan": "继续保持情绪稳定",
+      "mainEmotion": "焦虑",
+      "trigger": "希望能写好小说",
+      "coping": "写写写",
+      "tomorrowAdjust": "明日继续坚持",
       "phoneUse": "",
       "outOfControl": "",
       "improvement": "",
@@ -1146,12 +1146,12 @@
       "dietTreat": "",
       "dietDone": true,
       "dayFocusDone": false,
-      "weekFocusAdvanced": false,
+      "weekFocusAdvanced": true,
       "meditationDone": false,
       "dietLeave": true,
       "dietStopFull": true,
       "hygieneGrade": "优",
-      "moodStable": "",
+      "moodStable": "稳定",
       "phoneOk": "",
       "hygiene": {
         "env": true,
@@ -1167,7 +1167,9 @@
         "dinner": true,
         "snack": false
       },
-      "emotions": [],
+      "emotions": [
+        "焦虑"
+      ],
       "todo": null,
       "goals": [],
       "quad": null
@@ -1377,11 +1379,18 @@
         "done": true,
         "createdAt": 1793020249190,
         "doneAt": 1793020250441
+      },
+      {
+        "id": "mmvp9yu589h0is",
+        "text": "写500字小说8",
+        "done": false,
+        "createdAt": 1793020258844,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-26T13:10:55.796Z",
+  "exportedAt": "2026-10-26T13:11:48.403Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1399,8 +1408,9 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-26": 1793020237193,
-      "mmvp9ymp2baflg": 1793020250792
+      "2026-10-26": 1793020303400,
+      "mmvp9ymp2baflg": 1793020250792,
+      "mmvp9yu589h0is": 1793020259195
     },
     "deleted": {},
     "weekTimes": {
@@ -1430,8 +1440,9 @@
       "mmv9h1qyq0ew4o": 1792467759440,
       "mmvg513psl8w19": 1792580986540,
       "mmvi9f4b4bmv1a": 1792832974003,
-      "2026-10-26": 1793020237193,
-      "mmvp9ymp2baflg": 1793020250792
+      "2026-10-26": 1793020303400,
+      "mmvp9ymp2baflg": 1793020250792,
+      "mmvp9yu589h0is": 1793020259195
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
