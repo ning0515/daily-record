@@ -1239,6 +1239,72 @@
       "todo": null,
       "goals": [],
       "quad": null
+    },
+    "2026-10-29": {
+      "date": "2026-10-29",
+      "weight": 84.3,
+      "exercise": 20,
+      "water": 1000,
+      "sleep": 7,
+      "meals": 2,
+      "vanity": null,
+      "anxiety": null,
+      "depression": null,
+      "phoneScreen": null,
+      "phoneGoal": null,
+      "pickups": null,
+      "phoneBeforeBed": null,
+      "meditation": null,
+      "focus": null,
+      "weather": "",
+      "keyword": "",
+      "hygieneImprove": "",
+      "weekPlan": "",
+      "weekProgress": "",
+      "todayMostImportant": "",
+      "priority": "",
+      "todo3": "",
+      "reasonNotDone": "",
+      "tomorrowPlan": "",
+      "mainEmotion": "",
+      "trigger": "",
+      "coping": "",
+      "tomorrowAdjust": "",
+      "phoneUse": "",
+      "outOfControl": "",
+      "improvement": "",
+      "meditationFeel": "",
+      "other": "",
+      "dietLog": "午：辣皮子牛肉拌面  wan",
+      "dietCheat": "",
+      "dietTreat": "",
+      "dietDone": true,
+      "dayFocusDone": false,
+      "weekFocusAdvanced": false,
+      "meditationDone": false,
+      "dietLeave": true,
+      "dietStopFull": true,
+      "hygieneGrade": "",
+      "moodStable": "",
+      "phoneOk": "",
+      "hygiene": {
+        "env": false,
+        "afterMeal": false,
+        "chores": false,
+        "clothes": false,
+        "putBack": false,
+        "personal": false
+      },
+      "mealLeave": {
+        "breakfast": false,
+        "lunch": true,
+        "dinner": true,
+        "snack": false
+      },
+      "emotions": [],
+      "todo": null,
+      "goals": [],
+      "quad": null
     }
   },
   "weeks": {
@@ -1456,7 +1522,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-10-27T06:31:58.568Z",
+  "exportedAt": "2026-10-29T09:47:03.353Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1476,7 +1542,7 @@
       "mmvi9f4b4bmv1a": 1792832974003,
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
-      "2026-10-27": 1793070409243
+      "2026-10-29": 1793267218347
     },
     "deleted": {},
     "weekTimes": {
@@ -1508,7 +1574,7 @@
       "mmvi9f4b4bmv1a": 1792832974003,
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
-      "2026-10-27": 1793070409243
+      "2026-10-29": 1793267218347
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
