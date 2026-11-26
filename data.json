@@ -1591,11 +1591,18 @@
         "done": false,
         "createdAt": 1795660642203,
         "doneAt": null
+      },
+      {
+        "id": "mmwwxzkgr87gqh",
+        "text": "打扫卧室卫生",
+        "done": false,
+        "createdAt": 1795660649307,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-11-26T02:37:27.559Z",
+  "exportedAt": "2026-11-26T02:37:35.134Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1616,7 +1623,8 @@
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
       "2026-11-26": 1795660596714,
-      "mmwwxzezf0ou4r": 1795660642555
+      "mmwwxzezf0ou4r": 1795660642555,
+      "mmwwxzkgr87gqh": 1795660649658
     },
     "deleted": {},
     "weekTimes": {
@@ -1649,7 +1657,8 @@
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
       "2026-11-26": 1795660596714,
-      "mmwwxzezf0ou4r": 1795660642555
+      "mmwwxzezf0ou4r": 1795660642555,
+      "mmwwxzkgr87gqh": 1795660649658
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
