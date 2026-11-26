@@ -1584,11 +1584,18 @@
         "done": true,
         "createdAt": 1793020258844,
         "doneAt": 1793082712491
+      },
+      {
+        "id": "mmwwxzezf0ou4r",
+        "text": "写500字小说9",
+        "done": false,
+        "createdAt": 1795660642203,
+        "doneAt": null
       }
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-11-26T02:36:57.311Z",
+  "exportedAt": "2026-11-26T02:37:27.559Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1608,7 +1615,8 @@
       "mmvi9f4b4bmv1a": 1792832974003,
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
-      "2026-11-26": 1795660596714
+      "2026-11-26": 1795660596714,
+      "mmwwxzezf0ou4r": 1795660642555
     },
     "deleted": {},
     "weekTimes": {
@@ -1640,7 +1648,8 @@
       "mmvi9f4b4bmv1a": 1792832974003,
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
-      "2026-11-26": 1795660596714
+      "2026-11-26": 1795660596714,
+      "mmwwxzezf0ou4r": 1795660642555
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
