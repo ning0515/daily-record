@@ -1312,7 +1312,7 @@
       "exercise": null,
       "water": null,
       "sleep": null,
-      "meals": null,
+      "meals": 2,
       "vanity": null,
       "anxiety": null,
       "depression": null,
@@ -1341,7 +1341,7 @@
       "improvement": "",
       "meditationFeel": "",
       "other": "",
-      "dietLog": "",
+      "dietLog": "早：一个鸡腿",
       "dietCheat": "",
       "dietTreat": "",
       "dietDone": false,
@@ -1588,7 +1588,7 @@
     ]
   },
   "app": "每日记录",
-  "exportedAt": "2026-11-26T02:36:26.565Z",
+  "exportedAt": "2026-11-26T02:36:41.718Z",
   "syncMeta": {
     "times": {
       "mmuzokqr42kuv1": 1791472683231,
@@ -1608,7 +1608,7 @@
       "mmvi9f4b4bmv1a": 1792832974003,
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
-      "2026-11-26": 1795660580014
+      "2026-11-26": 1795660596714
     },
     "deleted": {},
     "weekTimes": {
@@ -1640,7 +1640,7 @@
       "mmvi9f4b4bmv1a": 1792832974003,
       "mmvp9ymp2baflg": 1793020250792,
       "mmvp9yu589h0is": 1793082712845,
-      "2026-11-26": 1795660580014
+      "2026-11-26": 1795660596714
     },
     "memoDeleted": {
       "mmuzofidnobtza": 1791472446410,
